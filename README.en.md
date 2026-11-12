@@ -14,6 +14,8 @@
 <p align="center"><a href="README.md">简体中文</a> · <b>English</b></p>
 <p align="center">
   <a href="#what-it-does">Introduction</a> ·
+  <a href="#why-open-source">Why open source</a> ·
+  <a href="#a-few-things-up-front">Read first</a> ·
   <a href="#run-it-locally">Local setup</a> ·
   <a href="#adapt-it-to-your-course">Course setup</a> ·
   <a href="#documentation">Documentation</a> ·
@@ -27,6 +29,20 @@ Upload a set of slide photos in page order. The application recognizes the pages
 The source includes a FastAPI backend, a browser interface and a native WeChat mini-program. Image processing, recognition prompts, grouping, knowledge expansion and export are available in the code so you can follow and change the actual workflow.
 
 [v0.1.0](https://github.com/ChenXuanyu-1216/classroom-photo-outline/releases/tag/v0.1.0) is published as a source-only developer preview. Formulas, code, terminology and source references still need human review. No public hosted service or Windows installer is provided.
+
+## Why open source
+
+Courses use different terminology, formulas and ways of explaining ideas. The default prompts are a starting point. Open source lets you inspect image processing and grouping, then adapt them to your course.
+
+Publishing the recognition prompts alongside human-review methods also makes problems easier to discuss precisely. A missing condition or incorrect source page can be investigated with the same input and processing steps, giving a change something concrete to check against.
+
+## A few things up front
+
+- **Treat this as a developer preview.** The project provides source you install yourself, without a hosted service or Windows installer. Someone needs to configure the environment, maintain data and handle deployment issues.
+- **Live model calls can cost money.** Supply your own key and check provider billing. Mock mode returns predefined examples; the local reviewer uses real DeepSeek configuration. Their requirements are described separately in setup.
+- **Check the result against the images.** Formula conditions and code indentation can change meaning, and AI-added explanations also need review. Passing offline tests does not establish recognition quality for a course.
+- **Manage photos and credentials separately.** Real classroom photos are excluded. Confirm permission for model upload and public distribution separately, and keep keys, sessions and populated configuration private.
+- **WeChat and cloud deployments need your own integration checks.** Database and container checks have recorded results. Device permissions, actual networking, user flows and production operation still need verification in the target environment.
 
 ## What you can use
 
