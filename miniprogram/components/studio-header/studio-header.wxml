@@ -1,0 +1,14 @@
+<view class="studio-header">
+  <view class="brand-row"><view class="brand"><view class="paper-icon"><view></view><view></view></view><text>课堂大纲</text></view><button class="speed" bindtap="changeSpeed">速度 {{speed}}×</button></view>
+  <view class="tabs"><view class="tab {{current === 'upload' ? 'current' : ''}}" bindtap="go" data-page="upload" aria-role="button" aria-disabled="{{locked}}">新建整理</view><view class="tab {{current === 'history' ? 'current' : ''}}" bindtap="go" data-page="history" aria-role="button" aria-disabled="{{locked}}">整理记录</view></view>
+  <view wx:if="{{!compact}}" class="hero">
+    <view class="hero-title">把课堂，整理成自己的知识。</view>
+    <view class="hero-subtitle">从照片里找回线索，让零散的知识，慢慢有了脉络。</view>
+    <view class="scene" aria-hidden="true">
+      <canvas class="knowledge-canvas" type="2d"></canvas>
+      <view class="source-photo" style="animation-duration:{{duration}}s"><image src="/assets/synthetic-slide.png" mode="aspectFill"/><text>合成示例</text></view>
+      <view class="excerpt" style="animation-duration:{{duration}}s"><view>从照片中找到线索</view><text>从原图，到理解</text></view>
+      <view class="annotation">让每一条线索，都有来处。</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+.photo-row { display: flex; gap: 24rpx; padding: 24rpx 0; border-bottom: 1rpx solid #e8e9df; }
+.photo-privacy-mask { position: fixed; inset: 0; z-index: 1000; background: rgba(24,38,30,.4); display: flex; align-items: center; justify-content: center; padding: 40rpx; }
+.photo-privacy-dialog { width: 100%; max-width: 640rpx; background: #fffefa; border: 1rpx solid #dedbcf; border-radius: 8rpx; padding: 36rpx 30rpx; }
+.photo-privacy-copy { color: #6f7b6d; font-size: 25rpx; line-height: 1.9; margin: 24rpx 0; }
+.photo-privacy-link { background: transparent; color: #24483e; font-size: 25rpx; padding: 0; text-decoration: underline; white-space: normal; line-height: 1.8; }
+.thumbnail { width: 120rpx; height: 110rpx; border-radius: 3rpx; flex-shrink: 0; background: #f2eee2; border: 1rpx solid #e1decf; padding: 5rpx; }
+.photo-info { flex: 1; min-width: 0; padding-top: 8rpx; }
+.photo-info .actions { gap: 8rpx; }
+.photo-info .actions button { min-width: 0; padding: 0 14rpx; }
+.drop-zone { border: 1rpx dashed #bfc7af; border-radius: 4rpx; background: #f7f8f2; text-align: center; padding: 34rpx 15rpx 30rpx; margin-top: 26rpx; }
+.drop-plus { color: #8f997e; font-size: 42rpx; font-weight: 200; line-height: 1.2; }
+.drop-title { font: 400 38rpx/1.8 'Songti SC', 'SimSun', serif; margin-top: 6rpx; }
+.drop-zone .muted { font-size: 21rpx; }
+.drop-zone .choose-button { display: inline-block; margin: 24rpx 0 18rpx; padding: 0 42rpx; font-size: 24rpx; }
+.drop-hint { color: #8a947d; font-size: 18rpx; line-height: 1.8; }
+.list-heading { font-size: 21rpx; color: #8a947d; margin-top: 30rpx; }
+.empty { padding: 30rpx 0; text-align: left; font-size: 22rpx; }
+.generate-footer { border-top: 1rpx solid #e6e7d9; padding-top: 26rpx; display: flex; align-items: center; justify-content: space-between; gap: 12rpx; }
+.generate-footer .muted { font-size: 20rpx; }
+.generate-footer button { margin: 0; font-size: 23rpx; padding: 0 24rpx; flex-shrink: 0; }
+.connection-settings { border-top: 1rpx solid #dfdfd0; margin-top: 30rpx; padding: 24rpx 4rpx 0; }
+.connection-settings .small { background: transparent; padding: 0; color: #7e8774; font-size: 21rpx; }
+.account-row { display: flex; align-items: center; justify-content: space-between; gap: 12rpx; padding: 12rpx 2rpx; }
+.account-row .muted { font-size: 20rpx; }.account-row .small { font-size: 21rpx; }
+.workspace-frame { position: relative; perspective: 1800rpx; isolation: isolate; min-height: 400rpx; }
+.workspace-frame.is-turning { overflow: hidden; }
+.workspace-leaf { position: absolute; top: 0; left: 0; right: 0; transform-origin: left center; backface-visibility: hidden; }
+.workspace-leaf.leaf-current { position: relative; z-index: 1; }
+.workspace-leaf[hidden] { display: none; }
+.is-turning .workspace-leaf { pointer-events: none; }
+.leaf-turn-out { z-index: 3; animation: sheet-out 620ms cubic-bezier(.25,.46,.45,.94) both; }
+.workspace-leaf.leaf-turn-in { z-index: 3; animation: sheet-in 620ms cubic-bezier(.25,.46,.45,.94) both; }
+.leaf-turn-out::after, .leaf-turn-in::after { content: ''; position: absolute; top: 28rpx; bottom: 0; right: 0; width: 35rpx; background: linear-gradient(90deg,transparent,#b0a78c33); border-radius: 0 40% 40% 0; pointer-events: none; }
+@keyframes sheet-out { from { transform: rotateY(0); opacity: 1; } to { transform: rotateY(-95deg); opacity: .25; } }
+@keyframes sheet-in { from { transform: rotateY(-95deg); opacity: .4; } to { transform: rotateY(0); opacity: 1; } }

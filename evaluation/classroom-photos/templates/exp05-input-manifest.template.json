@@ -1,0 +1,95 @@
+{
+  "protocol_version": "v2-exp05-handoff-v0.1",
+  "manifest_kind": "test_input_template_not_an_executable_runner",
+  "status": "not_run",
+  "run_id": null,
+  "purpose": "mvp_core_flow_and_failure_handling",
+  "code_commit": null,
+  "working_tree_dirty": null,
+  "code_hashes": {},
+  "prompt_hashes": {},
+  "mode": null,
+  "input_scope": {
+    "allowed_live_formats": [
+      ".jpg",
+      ".jpeg",
+      ".png"
+    ],
+    "suggested_new_live_page_count": "3-5",
+    "reference_fixture_repo_path": "lecture-syllabus-generator/backend/tests/fixtures/deepseek-synthetic-slide.png",
+    "fixture_is_real_classroom_sample": false
+  },
+  "samples": [],
+  "sample_entry_fields": {
+    "sample_id": null,
+    "local_relative_path": null,
+    "sha256": null,
+    "course_alias": null,
+    "upload_page_no": null,
+    "original_slide_page": null,
+    "scenario_tags": [],
+    "local_use_allowed": null,
+    "cloud_upload_allowed": null,
+    "allowed_provider": null,
+    "authorization_evidence_reference": null,
+    "expected_title": null,
+    "required_visible_units": [],
+    "allowed_uncertainties": [],
+    "human_expectation_status": "pending"
+  },
+  "offline_injection_cases": [
+    {
+      "case_id": "X02",
+      "kind": "timeout",
+      "expected_page_code": "MODEL_TIMEOUT",
+      "max_retry": 1,
+      "expected_attempts": 2
+    },
+    {
+      "case_id": "X03",
+      "kind": "connection",
+      "expected_page_code": "MODEL_CONNECTION_FAILED",
+      "max_retry": 1,
+      "expected_attempts": 2
+    },
+    {
+      "case_id": "X04A",
+      "kind": "empty_http_body",
+      "expected_page_code": "MODEL_EMPTY_RESPONSE",
+      "expected_attempts": 1
+    },
+    {
+      "case_id": "X04B",
+      "kind": "empty_content",
+      "expected_page_code": "MODEL_EMPTY_CONTENT",
+      "expected_attempts": 1
+    },
+    {
+      "case_id": "X05",
+      "kind": "malformed_json",
+      "expected_page_code": "MODEL_OUTPUT_INVALID",
+      "expected_attempts": 1
+    },
+    {
+      "case_id": "X06",
+      "kind": "empty_points",
+      "expected_page_code": "IMAGE_UNREADABLE",
+      "expected_attempts": 1
+    },
+    {
+      "case_id": "X07",
+      "kind": "explicit_recovery",
+      "expected_attempts_total": 3
+    }
+  ],
+  "budget": {
+    "existing_ledger_repo_path": null,
+    "snapshot_date": null,
+    "reserved_fen_snapshot": null,
+    "cap_fen_snapshot": null,
+    "live_batch_status": "pending_authorization_and_budget",
+    "must_recheck_before_live": true
+  },
+  "output_evidence_relative_directory": null,
+  "case_results": []
+}

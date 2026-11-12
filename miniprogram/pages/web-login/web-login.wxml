@@ -1,0 +1,22 @@
+<view class="screen login-confirm">
+  <view class="brand">课堂大纲</view>
+  <view class="paper">
+    <view class="paper-heading">
+      <view class="paper-title">{{state === 'approved' ? '已确认网页登录' : state === 'denied' ? '已取消登录' : '确认网页登录'}}</view>
+      <view class="paper-description">{{state === 'approved' ? '请返回电脑，继续整理你的课堂。' : '手机里的课堂笔记，也可以在电脑上继续。'}}</view>
+    </view>
+    <view class="paper-body">
+      <view wx:if="{{state === 'loading'}}" class="empty muted">正在验证微信账号…</view>
+      <block wx:elif="{{state === 'ready'}}">
+        <view class="confirm-code"><view class="muted">请核对网页上的校验码</view><view class="code">{{verification}}</view></view>
+        <view class="notice">确认后，该网页将以你的微信账号访问课堂照片、大纲和整理记录。请仅确认你本人发起的登录。</view>
+        <button class="primary spaced" bindtap="confirmLogin" loading="{{busy}}" disabled="{{busy}}">确认登录</button>
+        <button class="spaced" bindtap="rejectLogin" disabled="{{busy}}">取消登录</button>
+      </block>
+      <view wx:elif="{{state === 'error'}}" class="notice error">{{error}}</view>
+      <view wx:elif="{{state === 'approved'}}" class="notice">网页登录已授权。两端将访问同一账号的课堂资料。</view>
+      <view wx:else class="notice">尚未授权网页访问你的账号。</view>
+      <button wx:if="{{state === 'approved' || state === 'denied' || state === 'error'}}" class="spaced" bindtap="goHome">回到我的课堂</button>
+    </view>
+  </view>
+</view>

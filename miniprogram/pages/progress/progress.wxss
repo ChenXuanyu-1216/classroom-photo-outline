@@ -1,0 +1,2 @@
+.page-status { padding: 26rpx 0; border-bottom: 1rpx solid #e7e8dd; font-size: 25rpx; }
+.page-status .row > text:first-child { overflow-wrap: anywhere; flex: 1; }

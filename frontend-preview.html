@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>课堂大纲 · 离线预览</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<style>#knowledge-flow-home {
+    color-scheme: light dark;
+    --kf-bg: light-dark(#f7f5f0, #242321);
+    --kf-paper: light-dark(#fffefa, #2e2d2a);
+    --kf-ink: light-dark(#2d2c28, #e6e2da);
+    --kf-muted: light-dark(#6e6b63, #b1aba0);
+    --kf-line: light-dark(#dedbd2, #48443e);
+    --kf-wash: light-dark(#f0ede6, #36332e);
+    --kf-accent: light-dark(#b55b3c, #d08b6d);
+    --kf-intensity: .3;
+    --kf-pace: 1;
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--kf-bg);
+    color: var(--kf-ink);
+    font: 14px/1.6 "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
+    text-align: left;
+  }
+  #knowledge-flow-home * { box-sizing: border-box; }
+  #knowledge-flow-home button, #knowledge-flow-home input { font: inherit; }
+  #knowledge-flow-home button, #knowledge-flow-home .kf-drop { cursor: pointer; }
+  #knowledge-flow-home button:focus-visible, #knowledge-flow-home a:focus-visible, #knowledge-flow-home .kf-drop:focus-within { outline: 2px solid var(--kf-accent); outline-offset: 4px; }
+  #knowledge-flow-home [hidden] { display: none !important; }
+  #knowledge-flow-home .kf-background { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; mask-image: linear-gradient(transparent, #000 15%, #000 80%, transparent), linear-gradient(90deg, #000, #0009 25%, transparent 39%, transparent 61%, #0009 75%, #000); mask-composite: intersect; }
+  #knowledge-flow-home .kf-stream { position: absolute; left: var(--left); top: 0; width: max-content; color: light-dark(#776856, #c2ac91); opacity: var(--kf-intensity); transform: rotate(var(--tilt)); }
+  #knowledge-flow-home .kf-far { opacity: calc(var(--kf-intensity) * .53); }
+  #knowledge-flow-home .kf-ribbon { animation: kf-rise calc(var(--travel) * var(--kf-pace)) linear infinite; animation-delay: var(--delay); will-change: transform; }
+  #knowledge-flow-home .kf-cycle { height: 920px; display: flex; flex-direction: column; justify-content: space-around; gap: 28px; padding: 50px 0; }
+  #knowledge-flow-home .kf-equation { display: block; font: italic 23px/1.6 "Cambria Math", "Times New Roman", serif; white-space: nowrap; }
+  #knowledge-flow-home .kf-equation sup, #knowledge-flow-home .kf-equation sub { font-size: .65em; }
+  #knowledge-flow-home .kf-large { font-size: 37px; }
+  #knowledge-flow-home .kf-code { display: block; font: 13px/1.8 "Cascadia Code", "Consolas", monospace; white-space: nowrap; }
+  @keyframes kf-rise { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
+  #knowledge-flow-home.kf-paused .kf-ribbon { animation-play-state: paused; }
+  #knowledge-flow-home.kf-playing .kf-ribbon { animation-play-state: running; }
+  #knowledge-flow-home .kf-header { position: relative; display: flex; align-items: center; gap: 34px; min-height: 72px; padding: 0 32px; background: var(--kf-bg); }
+  #knowledge-flow-home .kf-brand { display: flex; align-items: center; gap: 10px; font-weight: 500; white-space: nowrap; }
+  #knowledge-flow-home .kf-brand svg { width: 21px; height: 21px; color: var(--kf-accent); }
+  #knowledge-flow-home .kf-nav { display: flex; align-items: center; align-self: stretch; gap: 24px; }
+  #knowledge-flow-home .kf-nav-item { display: flex; align-items: center; text-decoration: none; padding: 8px 12px; border: 0; border-radius: 7px; background: none; color: var(--kf-muted); white-space: nowrap; }
+  #knowledge-flow-home .kf-current { background: var(--kf-wash); color: var(--kf-ink); font-weight: 500; }
+  #knowledge-flow-home .kf-motion { margin-left: auto; padding: 5px 0; border: 0; background: none; color: var(--kf-muted); font-size: 12px; white-space: nowrap; }
+  #knowledge-flow-home .kf-motion-controls { position: relative; display: flex; align-items: center; gap: 14px; margin-left: auto; }
+  #knowledge-flow-home .kf-motion-controls .kf-motion { margin-left: 0; }
+  #knowledge-flow-home .kf-speed-toggle { padding: 5px 0; border: 0; background: none; color: var(--kf-muted); font-size: 12px; white-space: nowrap; }
+  #knowledge-flow-home .kf-speed-panel { position: absolute; z-index: 10; top: calc(100% + 12px); right: 0; width: 228px; max-width: calc(100vw - 32px); padding: 16px 18px; border: 1px solid var(--kf-line); border-radius: 10px; background: var(--kf-paper); box-shadow: 0 8px 28px #0000000a; }
+  #knowledge-flow-home .kf-speed-panel label { display: flex; align-items: center; justify-content: space-between; color: var(--kf-ink); font-size: 12px; }
+  #knowledge-flow-home .kf-speed-value { color: var(--kf-accent); font-variant-numeric: tabular-nums; }
+  #knowledge-flow-home .kf-speed-input { display: block; width: 100%; min-height: 32px; margin: 8px 0 2px; accent-color: var(--kf-accent); cursor: pointer; }
+  #knowledge-flow-home .kf-speed-input:focus-visible { outline: 2px solid var(--kf-accent); outline-offset: 2px; }
+  #knowledge-flow-home .kf-speed-hints { display: flex; justify-content: space-between; color: var(--kf-muted); font-size: 11px; }
+  #knowledge-flow-home .kf-main { position: relative; max-width: 732px; margin: 64px auto 40px; padding: 0 16px; }
+  .kf-page-entering #knowledge-flow-home .kf-main { opacity: 0; }
+  #knowledge-flow-home .kf-heading { margin-bottom: 34px; padding: 0 2px; text-align: center; }
+  #knowledge-flow-home .kf-heading h1 { margin: 0 0 12px; color: var(--kf-ink); font-family: Georgia, "Songti SC", "SimSun", serif; font-size: 36px; line-height: 1.4; font-weight: 400; }
+  #knowledge-flow-home .kf-heading p { margin: 0; color: var(--kf-muted); font-size: 14px; line-height: 1.8; }
+  #knowledge-flow-home .kf-workspace { background: var(--kf-paper); border: 1px solid var(--kf-line); border-radius: 18px; }
+  #knowledge-flow-home .kf-section-head { display: flex; align-items: center; justify-content: space-between; padding: 24px 26px 18px; gap: 12px; }
+  #knowledge-flow-home .kf-section-head h2 { margin: 0; font-size: 14px; font-weight: 500; }
+  #knowledge-flow-home .kf-section-head > span { color: var(--kf-muted); font-size: 12px; }
+  #knowledge-flow-home .kf-drop { position: relative; display: flex; flex-direction: column; align-items: center; gap: 9px; min-height: 180px; margin: 0 26px; padding: 24px 16px; border: 1px dashed var(--kf-line); border-radius: 12px; background: var(--kf-wash); text-align: center; }
+  #knowledge-flow-home .kf-drop > svg { width: 23px; height: 23px; margin-bottom: 3px; color: var(--kf-muted); }
+  #knowledge-flow-home .kf-drop strong { font-size: 15px; font-weight: 500; }
+  #knowledge-flow-home .kf-drop > span:not(.kf-file-button) { color: var(--kf-muted); font-size: 12px; }
+  #knowledge-flow-home .kf-drop small { color: var(--kf-muted); font-size: 12px; }
+  #knowledge-flow-home .kf-file-button { display: inline-block; min-width: 112px; padding: 9px 22px; margin: 4px 0; border-radius: 7px; background: var(--kf-ink); color: var(--kf-paper); font-size: 12px; }
+  #knowledge-flow-home .kf-file-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+  #knowledge-flow-home .kf-list-header { display: flex; justify-content: space-between; margin: 22px 26px 0; padding-bottom: 12px; border-bottom: 1px solid var(--kf-line); font-size: 12px; }
+  #knowledge-flow-home .kf-file-count { color: var(--kf-muted); }
+  #knowledge-flow-home .kf-files { min-height: 76px; padding: 14px 26px; }
+  #knowledge-flow-home .kf-empty { margin: 10px 0; color: var(--kf-muted); text-align: center; font-size: 12px; }
+  #knowledge-flow-home .kf-file-row { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 0; color: var(--kf-ink); overflow-wrap: anywhere; font-size: 12px; }
+  #knowledge-flow-home .kf-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 26px; border-top: 1px solid var(--kf-line); }
+  #knowledge-flow-home .kf-bottom > span { color: var(--kf-muted); font-size: 12px; }
+  #knowledge-flow-home .kf-generate { padding: 9px 20px; border: 0; border-radius: 7px; background: var(--kf-accent); color: var(--kf-paper); font-size: 12px; cursor: pointer; }
+  #knowledge-flow-home .kf-note { margin: 20px 2px 0; color: var(--kf-muted); text-align: center; font-size: 12px; }
+  @media (max-width: 680px) {
+    #knowledge-flow-home .kf-header { gap: 16px; padding: 14px 16px; flex-wrap: wrap; }
+    #knowledge-flow-home .kf-nav { order: 3; width: 100%; height: 36px; gap: 12px; }
+    #knowledge-flow-home .kf-motion { margin-right: 0; }
+    #knowledge-flow-home .kf-main { margin-top: 38px; }
+    #knowledge-flow-home .kf-heading { margin-bottom: 28px; }
+    #knowledge-flow-home .kf-heading h1 { font-size: 29px; }
+    #knowledge-flow-home .kf-heading p { font-size: 13px; }
+    #knowledge-flow-home .kf-section-head, #knowledge-flow-home .kf-bottom { padding: 20px 18px; }
+    #knowledge-flow-home .kf-drop { margin: 0 18px; }
+    #knowledge-flow-home .kf-list-header { margin-left: 18px; margin-right: 18px; }
+    #knowledge-flow-home .kf-files { padding: 14px 18px; }
+    #knowledge-flow-home .kf-background { opacity: .65; }
+    #knowledge-flow-home .kf-bottom { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #knowledge-flow-home .kf-ribbon { animation-play-state: paused; }
+  }
+  @media (pointer: coarse) {
+    #knowledge-flow-home button { min-height: 44px; }
+  }
+  #knowledge-flow-home .kf-drop:hover, #knowledge-flow-home .kf-drop.dragover { border-color: var(--kf-accent); }
+  #knowledge-flow-home .kf-drop { transition: border-color 180ms, background-color 180ms; }
+  #knowledge-flow-home .kf-drop:hover, #knowledge-flow-home .kf-drop:focus-within, #knowledge-flow-home .kf-drop.dragover { background: color-mix(in srgb, var(--kf-accent) 6%, var(--kf-paper)); }
+  #knowledge-flow-home .kf-generate { transition: transform 150ms, background-color 180ms; }
+  #knowledge-flow-home .kf-generate:active:not(:disabled) { transform: scale(.97); }
+  #knowledge-flow-home .kf-upload-message { margin: 0 26px 16px; color: var(--kf-muted); font-size: 12px; overflow-wrap: anywhere; }
+  #knowledge-flow-home .kf-upload-message:empty { display: none; }
+  #knowledge-flow-home .kf-upload-message[role="alert"] { color: var(--kf-accent); }
+  #knowledge-flow-home .kf-workspace-notice { min-height: 20px; margin: 8px 2px 0; color: var(--kf-muted); text-align: center; font-size: 12px; }
+  #knowledge-flow-home .kf-nav { position: relative; }
+  #knowledge-flow-home.kf-enhanced .kf-nav-item { position: relative; z-index: 1; transition: color 180ms; }
+  #knowledge-flow-home.kf-enhanced .kf-nav-item:hover { color: var(--kf-accent); }
+  #knowledge-flow-home.kf-enhanced .kf-current { background: transparent; }
+  #knowledge-flow-home .kf-nav-indicator { position: absolute; left: 0; top: calc(50% - 19px); height: 38px; border-radius: 7px; background: var(--kf-wash); pointer-events: none; }
+  #knowledge-flow-home .kf-draft-marker { position: absolute; right: 5px; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--kf-accent); }
+  #knowledge-flow-home.kf-navigating .kf-main { overflow: clip; }
+  @media (max-width: 680px) { #knowledge-flow-home .kf-upload-message { margin-left: 18px; margin-right: 18px; } }
+  @media (prefers-reduced-motion: reduce) {
+    #knowledge-flow-home .kf-nav-indicator, #knowledge-flow-home.kf-enhanced .kf-main, #knowledge-flow-home .kf-drop, #knowledge-flow-home .kf-generate { transition: none; }
+    #knowledge-flow-home .kf-generate:active:not(:disabled) { transform: none; }
+  }
+  #knowledge-flow-home .kf-generate:disabled { background: light-dark(#e7e3dc, #444039); color: light-dark(#858075, #b2aa9c); cursor: not-allowed; }
+  #knowledge-flow-home .file-order { display: flex; align-items: center; justify-content: center; min-height: 34px; border: 1px solid var(--kf-line); border-radius: 3px 7px 3px 3px; background: var(--kf-wash); color: var(--kf-muted); font-variant-numeric: tabular-nums; }
+  #knowledge-flow-home .file-name { min-width: 0; overflow-wrap: anywhere; }
+  #knowledge-flow-home .move-btns { display: flex; gap: 4px; }
+  #knowledge-flow-home .move-btns button { width: 32px; min-height: 32px; padding: 4px; border: 1px solid var(--kf-line); border-radius: 7px; background: var(--kf-paper); color: var(--kf-accent); }
+  #knowledge-flow-home .move-btns button:hover:not(:disabled) { background: var(--kf-wash); }
+  #knowledge-flow-home .move-btns button:disabled { color: light-dark(#aaa398, #8f877b); cursor: default; }
+  @media (max-width: 420px) {
+    #knowledge-flow-home .kf-files { padding: 12px 16px; }
+    #knowledge-flow-home .kf-file-row { grid-template-columns: 26px minmax(0, 1fr); gap: 6px; }
+    #knowledge-flow-home .move-btns { grid-column: 2; justify-content: flex-end; }
+  }
+  @media (pointer: coarse) {
+    #knowledge-flow-home .move-btns button { width: 44px; min-height: 44px; }
+    #knowledge-flow-home .kf-nav { min-height: 44px; }
+    #knowledge-flow-home .kf-nav-item { min-height: 44px; }
+  }
+
+#knowledge-flow-home.kf-history-view .kf-main { max-width: 860px; }
+#knowledge-flow-home .kf-history-list { padding: 0 26px; }
+#knowledge-flow-home .kf-history-workspace .kf-section-head { padding-bottom: 20px; }
+#knowledge-flow-home .kf-history-workspace .kf-section-head > span { font-size: 12px; }
+#knowledge-flow-home .kf-record { padding: 24px 0; border-top: 1px solid var(--kf-line); }
+#knowledge-flow-home .kf-record-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+#knowledge-flow-home .kf-outline-preview { margin-top: 18px; padding: 15px 18px; border-left: 2px solid var(--kf-line); border-radius: 0 9px 9px 0; background: var(--kf-wash); overflow-wrap: anywhere; animation: kf-preview-reveal 240ms ease-out; }
+#knowledge-flow-home .kf-preview-line { margin: 7px 0; font-size: 13px; white-space: pre-wrap; }
+#knowledge-flow-home h4.kf-preview-line { font-size: 14px; font-weight: 500; margin-top: 12px; }
+#knowledge-flow-home h5.kf-preview-line { font-weight: 500; margin-top: 14px; }
+#knowledge-flow-home .kf-preview-line:first-child { margin-top: 0; }
+#knowledge-flow-home .kf-preview-caption, #knowledge-flow-home .kf-preview-message { margin: 10px 0 0; color: var(--kf-muted); font-size: 12px; }
+#knowledge-flow-home .kf-preview-message:first-child { margin-top: 0; }
+#knowledge-flow-home .kf-outline-preview .kf-history-action { margin-top: 12px; }
+@keyframes kf-preview-reveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { #knowledge-flow-home .kf-outline-preview { animation: none; } }
+#knowledge-flow-home .kf-record-info { min-width: 0; }
+#knowledge-flow-home .kf-record-info { display: flex; align-items: center; gap: 14px; }
+#knowledge-flow-home .kf-record-text { min-width: 0; }
+#knowledge-flow-home .kf-record-paper { display: flex; flex-direction: column; justify-content: center; gap: 5px; flex: 0 0 36px; height: 44px; padding: 8px; border: 1px solid var(--kf-line); border-radius: 3px 8px 3px 3px; background: var(--kf-wash); transition: transform 180ms; }
+#knowledge-flow-home .kf-record-paper > span { display: block; height: 1px; background: var(--kf-muted); opacity: .5; }
+#knowledge-flow-home .kf-record-paper > span:first-child { width: 60%; height: 2px; background: var(--kf-accent); opacity: .8; }
+#knowledge-flow-home .kf-record-paper > span:last-child { width: 75%; }
+#knowledge-flow-home .kf-record-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+#knowledge-flow-home .kf-record-heading h3 { margin: 0; font-size: 15px; line-height: 1.7; font-weight: 500; overflow-wrap: anywhere; }
+#knowledge-flow-home .kf-record-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 9px; color: var(--kf-muted); font-size: 12px; overflow-wrap: anywhere; }
+#knowledge-flow-home .kf-status { display: inline-block; flex-shrink: 0; padding: 2px 8px; border-radius: 5px; background: var(--kf-wash); color: var(--kf-muted); font-size: 11px; line-height: 1.7; white-space: nowrap; }
+#knowledge-flow-home .kf-status-running { color: var(--kf-ink); }
+#knowledge-flow-home .kf-status-success { background: light-dark(#eaf0e8, #303d31); color: light-dark(#46634c, #a6c2ab); }
+#knowledge-flow-home .kf-status-failed { background: light-dark(#f7eae5, #49342f); color: light-dark(#934c40, #e3afa3); }
+#knowledge-flow-home .kf-status-partial { background: light-dark(#f5eedf, #443b2b); color: light-dark(#785c2b, #d6bd85); }
+#knowledge-flow-home .kf-record-actions { display: flex; align-items: center; flex-shrink: 0; gap: 8px; }
+#knowledge-flow-home .kf-history-action { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 7px 14px; border: 1px solid transparent; border-radius: 7px; background: none; color: var(--kf-ink); font-size: 12px; text-decoration: none; white-space: nowrap; }
+#knowledge-flow-home .kf-record-open { border-color: var(--kf-line); }
+#knowledge-flow-home .kf-history-action:hover { background: var(--kf-wash); }
+#knowledge-flow-home .kf-record-preview { gap: 9px; }
+#knowledge-flow-home .kf-record-preview::after { content: ""; width: 5px; height: 5px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg) translateY(-1px); transition: transform 180ms; }
+#knowledge-flow-home .kf-record-preview[aria-expanded="true"] { color: var(--kf-accent); background: var(--kf-wash); }
+#knowledge-flow-home .kf-record-preview[aria-expanded="true"]::after { transform: rotate(225deg) translate(-1px, -1px); }
+#knowledge-flow-home .kf-record:has(.kf-history-action:focus-visible) .kf-record-paper, #knowledge-flow-home .kf-record:has(.kf-history-action:hover) .kf-record-paper { transform: translateY(-2px); }
+#knowledge-flow-home .kf-history-primary { padding: 9px 22px; background: var(--kf-ink); color: var(--kf-paper); }
+#knowledge-flow-home .kf-history-primary:hover { background: var(--kf-accent); }
+#knowledge-flow-home .kf-history-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; gap: 12px; padding: 44px 18px; border-top: 1px solid var(--kf-line); text-align: center; }
+#knowledge-flow-home .kf-history-state h3 { margin: 0; font-family: Georgia, "Songti SC", "SimSun", serif; font-size: 23px; line-height: 1.6; font-weight: 400; }
+#knowledge-flow-home .kf-history-state p { max-width: 360px; margin: 0; color: var(--kf-muted); font-size: 13px; }
+#knowledge-flow-home .kf-history-state .kf-history-action { margin-top: 10px; }
+@media (max-width: 680px) {
+    #knowledge-flow-home .kf-history-list { padding: 0 18px; }
+    #knowledge-flow-home .kf-record { padding: 22px 0; }
+    #knowledge-flow-home .kf-record-top { align-items: stretch; flex-direction: column; gap: 16px; }
+    #knowledge-flow-home .kf-record-actions { flex-wrap: wrap; }
+    #knowledge-flow-home .kf-record-actions { justify-content: flex-end; }
+    #knowledge-flow-home .kf-history-state { min-height: 280px; padding: 36px 4px; }
+    #knowledge-flow-home .kf-history-state h3 { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #knowledge-flow-home .kf-record-paper, #knowledge-flow-home .kf-record-preview::after { transition: none; }
+    #knowledge-flow-home .kf-record:has(.kf-history-action:hover) .kf-record-paper, #knowledge-flow-home .kf-record:has(.kf-history-action:focus-visible) .kf-record-paper { transform: none; }
+}
+@media (pointer: coarse) {
+    #knowledge-flow-home .kf-history-action { min-height: 44px; }
+}
+@media (max-width: 420px) {
+    #knowledge-flow-home .kf-record-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px; }
+    #knowledge-flow-home .kf-record-actions .kf-history-action { min-width: 44px; padding-left: 8px; padding-right: 8px; }
+}
+
+    #knowledge-flow-home .kf-preview-tools { margin: 20px 0; text-align: center; color: var(--kf-muted); font-size: 12px; }
+    #knowledge-flow-home .kf-preview-tools button { margin-top: 8px; border: 0; padding: 8px 14px; border-radius: 7px; background: var(--kf-wash); color: var(--kf-ink); }
+    </style>
+</head>
+<body id="knowledge-flow-home" class="kf-history-view">
+  <div class="kf-background" aria-hidden="true">
+    <div class="kf-stream" style="--left:2%;--travel:83s;--delay:-31s;--tilt:-5deg">
+      <div class="kf-ribbon">
+        <div class="kf-cycle">
+          <span class="kf-equation">∫<sub>0</sub><sup>1</sup> x² dx = ⅓</span>
+          <span class="kf-equation kf-large">e<sup>iπ</sup> + 1 = 0</span>
+          <span class="kf-code">return a + b;</span>
+          <span class="kf-equation">∇ · E = ρ / ε₀</span>
+        </div>
+        <div class="kf-cycle">
+          <span class="kf-equation">∫<sub>0</sub><sup>1</sup> x² dx = ⅓</span>
+          <span class="kf-equation kf-large">e<sup>iπ</sup> + 1 = 0</span>
+          <span class="kf-code">return a + b;</span>
+          <span class="kf-equation">∇ · E = ρ / ε₀</span>
+        </div>
+      </div>
+    </div>
+    <div class="kf-stream kf-far" style="--left:18%;--travel:119s;--delay:-74s;--tilt:3deg">
+      <div class="kf-ribbon">
+        <div class="kf-cycle">
+          <span class="kf-equation kf-large">Ax = λx</span>
+          <span class="kf-equation">lim<sub>x→0</sub> sin x / x = 1</span>
+          <span class="kf-code">while (node) { node = node.next; }</span>
+          <span class="kf-equation">f(x) = ∑ a<sub>n</sub>x<sup>n</sup></span>
+        </div>
+        <div class="kf-cycle">
+          <span class="kf-equation kf-large">Ax = λx</span>
+          <span class="kf-equation">lim<sub>x→0</sub> sin x / x = 1</span>
+          <span class="kf-code">while (node) { node = node.next; }</span>
+          <span class="kf-equation">f(x) = ∑ a<sub>n</sub>x<sup>n</sup></span>
+        </div>
+      </div>
+    </div>
+    <div class="kf-stream" style="--left:78%;--travel:97s;--delay:-56s;--tilt:4deg">
+      <div class="kf-ribbon">
+        <div class="kf-cycle">
+          <span class="kf-equation">d/dx ln x = 1/x</span>
+          <span class="kf-code">const mid = (lo + hi) &gt;&gt; 1;</span>
+          <span class="kf-equation kf-large">iℏ ∂ψ/∂t = Ĥψ</span>
+          <span class="kf-equation">F = ma</span>
+        </div>
+        <div class="kf-cycle">
+          <span class="kf-equation">d/dx ln x = 1/x</span>
+          <span class="kf-code">const mid = (lo + hi) &gt;&gt; 1;</span>
+          <span class="kf-equation kf-large">iℏ ∂ψ/∂t = Ĥψ</span>
+          <span class="kf-equation">F = ma</span>
+        </div>
+      </div>
+    </div>
+    <div class="kf-stream kf-far" style="--left:58%;--travel:107s;--delay:-16s;--tilt:-3deg">
+      <div class="kf-ribbon">
+        <div class="kf-cycle">
+          <span class="kf-equation">P(A ∩ B) = P(A|B) P(B)</span>
+          <span class="kf-equation kf-large">[ a b ]<br>[ c d ]</span>
+          <span class="kf-code">for (let i = 0; i &lt; n; i++)</span>
+          <span class="kf-equation">∂²u/∂t² = c² ∂²u/∂x²</span>
+        </div>
+        <div class="kf-cycle">
+          <span class="kf-equation">P(A ∩ B) = P(A|B) P(B)</span>
+          <span class="kf-equation kf-large">[ a b ]<br>[ c d ]</span>
+          <span class="kf-code">for (let i = 0; i &lt; n; i++)</span>
+          <span class="kf-equation">∂²u/∂t² = c² ∂²u/∂x²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="kf-header">
+    <div class="kf-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"/><path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"/></svg><span>课堂大纲</span></div>
+    <nav class="kf-nav" aria-label="主导航">
+      <a class="kf-nav-item" href="/">新建整理</a>
+      <a class="kf-nav-item kf-current" href="/history.html" aria-current="page">整理记录</a>
+    </nav>
+    <div class="kf-motion-controls">
+      <button class="kf-motion" type="button" aria-pressed="false">暂停背景</button>
+      <button class="kf-speed-toggle" type="button" aria-expanded="false" aria-controls="kf-speed-panel">速度 1×</button>
+      <div class="kf-speed-panel" id="kf-speed-panel" hidden>
+        <label for="kf-speed">流动速度 <output class="kf-speed-value" for="kf-speed">1×</output></label>
+        <input class="kf-speed-input" id="kf-speed" type="range" min="0.25" max="3" step="0.25" value="1">
+        <div class="kf-speed-hints"><span>舒缓</span><span>轻快</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="kf-main">
+    <section aria-labelledby="history-heading">
+      <div class="kf-heading">
+        <h1 id="history-heading">整理记录</h1>
+        <p>回看每一次课堂整理，继续校对与导出。</p>
+      </div>
+      <div class="kf-workspace kf-history-workspace">
+        <div class="kf-section-head"><h2>全部记录</h2><span id="task-count">读取中</span></div>
+        <div id="task-list" class="kf-history-list" aria-live="polite" aria-busy="true">
+          <div class="kf-history-state"><h3>正在读取整理记录</h3></div>
+        </div>
+      </div>
+      <p class="kf-note">记录按创建时间排列，最近的整理显示在前。</p>
+      <p id="workspace-status" class="kf-workspace-notice" role="status" aria-live="polite"></p>
+    <div class="kf-preview-tools">
+      <p>样式预览 · 示例记录，打开与导出请使用运行中的系统。</p>
+      <button id="preview-empty" type="button">查看空记录</button>
+      <p id="preview-message" role="status"></p>
+    </div></section>
+  </main>
+<template data-workspace-page="upload" data-page-title="课堂大纲 · 离线预览">
+    <section class="kf-upload-page" aria-labelledby="upload-heading">
+      <div class="kf-heading">
+        <h1 id="upload-heading">整理今天的课堂</h1>
+        <p>添加课堂照片，按顺序整理成复习大纲。</p>
+      </div>
+      <div class="kf-workspace">
+        <div class="kf-section-head"><h2>课堂照片</h2><span>JPG / PNG / PDF</span></div>
+        <label id="drop-zone" class="kf-drop">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <strong>添加课堂照片</strong>
+          <span>将照片拖到这里，或选择文件</span>
+          <span class="kf-file-button">选择文件</span>
+          <small id="file-hint">最多 20 张，单张不超过 10 MB</small>
+          <input id="file-input" class="kf-file-input" type="file" multiple accept=".jpg,.jpeg,.png,.pdf" aria-label="选择课堂照片" aria-describedby="file-hint">
+        </label>
+        <div class="kf-list-header"><span>照片列表</span><span id="file-count" class="kf-file-count" aria-live="polite">0 张</span></div>
+        <div id="file-list" class="kf-files"><p class="kf-empty">还没有添加照片</p></div>
+        <p id="upload-message" class="kf-upload-message" role="status" aria-live="polite"></p>
+        <div class="kf-bottom">
+          <span>照片顺序将作为来源页码。</span>
+          <button id="generate-btn" class="kf-generate" type="button" disabled>生成大纲</button>
+        </div>
+      </div>
+      <p class="kf-note">生成后可继续校对，并导出 Word。AI 生成结果仅供参考，请人工校对后使用。</p>
+      <p id="workspace-status" class="kf-workspace-notice" role="status" aria-live="polite"></p>
+    </section>
+</template>
+<script>
+
+    let empty = false;
+    const samples = [
+      {task_id: 3, title: '高等数学：微积分', status: 'success', page_count: 12, created_at: '2026-10-17T03:20:00Z'},
+      {task_id: 2, title: '数据结构：树与遍历', status: 'partial', page_count: 8, created_at: '2026-10-16T07:45:00Z'},
+      {task_id: 1, title: '大学物理：电磁学', status: 'success', page_count: 16, created_at: '2026-10-15T01:10:00Z'}
+    ];
+    const outlines = {
+      3: '# 高等数学：微积分\n## 导数与微分\n- 导数描述函数的局部变化率。来源：第 1–4 页\n## 定积分\n- 使用定积分计算区间上的累积量。来源：第 5–8 页\n## 应用\n- 面积与体积问题。来源：第 9–12 页',
+      2: '# 数据结构：树与遍历\n## 二叉树\n- 二叉树的结构与存储。来源：第 1–3 页\n## 树的遍历\n- 前序、中序和后序遍历。来源：第 4–8 页',
+      1: '# 大学物理：电磁学\n## 电场\n- 电场强度与电势。来源：第 1–8 页\n## 磁场\n- 磁感应强度与电磁感应。来源：第 9–16 页'
+    };
+    const API = {
+      listTasks: async () => ({ok: true, json: async () => ({tasks: empty ? [] : samples})}),
+      getOutline: async id => ({ok: true, json: async () => ({task_id: id, markdown: outlines[id], version: 1})}),
+      createTask: async () => ({status: 400, json: async () => ({message: '离线预览不提交任务，请启动正式系统'})})
+    };
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link) return;
+      const target = link.getAttribute('href');
+      if (target.startsWith('/outline.html') || target.startsWith('/api/')) {
+        event.preventDefault();
+        document.getElementById('preview-message').textContent = '这里是示例记录，请启动后端后使用打开与导出。';
+      }
+    });
+    document.getElementById('preview-empty').addEventListener('click', event => {
+      empty = !empty;
+      event.target.textContent = empty ? '查看示例记录' : '查看空记录';
+      const oldList = document.getElementById('task-list');
+      oldList.replaceWith(oldList.cloneNode(false));
+      ClassroomHistory.init();
+    });
+
+(() => {
+const mounted = new WeakMap();
+let current = null;
+function init() {
+const fileInput = document.getElementById("file-input");
+if (!fileInput) return;
+if (mounted.has(fileInput)) return mounted.get(fileInput);
+let selectedFiles = [];
+let isUploading = false;
+let rows = new Map();
+
+const dropZone = document.getElementById("drop-zone");
+const fileList = document.getElementById("file-list");
+const fileCount = document.getElementById("file-count");
+const generateBtn = document.getElementById("generate-btn");
+const message = document.getElementById("upload-message");
+
+function announce(text, error = false) {
+    if (!message) return;
+    message.setAttribute("role", error ? "alert" : "status");
+    message.textContent = text;
+}
+
+dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    if (!isUploading) dropZone.classList.add("dragover");
+});
+dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+    handleFiles(e.dataTransfer.files);
+});
+fileInput.addEventListener("change", (e) => handleFiles(e.target.files));
+
+function handleFiles(files) {
+    if (isUploading || !files.length) return;
+    const added = Array.from(files);
+    selectedFiles.push(...added);
+    fileInput.value = "";
+    renderFileList(true);
+    announce(`已添加 ${added.length} 张照片，共 ${selectedFiles.length} 张。切换到整理记录后，照片和顺序会保留。`);
+}
+
+function renderFileList(animate = false) {
+    const positions = new Map([...rows].map(([file, row]) => [file, row.getBoundingClientRect().top]));
+    rows = new Map();
+    fileList.replaceChildren();
+    fileCount.textContent = `${selectedFiles.length} 张`;
+    generateBtn.disabled = isUploading || selectedFiles.length === 0;
+    generateBtn.textContent = isUploading ? "上传中..." : "生成大纲";
+    fileInput.disabled = isUploading;
+    dropZone.setAttribute("aria-disabled", String(isUploading));
+    if (selectedFiles.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "kf-empty";
+        empty.textContent = "还没有添加照片";
+        fileList.appendChild(empty);
+    }
+    selectedFiles.forEach((file, index) => {
+        const item = document.createElement("div");
+        item.className = "kf-file-row";
+        const order = document.createElement("span");
+        order.className = "file-order";
+        order.textContent = `P${index + 1}`;
+        const name = document.createElement("span");
+        name.className = "file-name";
+        name.textContent = file.name;
+        const controls = document.createElement("div");
+        controls.className = "move-btns";
+        const actions = [
+            ["↑", `上移第 ${index + 1} 张照片`, () => moveFile(index, -1), index === 0],
+            ["↓", `下移第 ${index + 1} 张照片`, () => moveFile(index, 1), index === selectedFiles.length - 1],
+            ["✕", `删除第 ${index + 1} 张照片`, () => removeFile(index), false],
+        ];
+        actions.forEach(([text, label, handler, disabled]) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = text;
+            button.setAttribute("aria-label", label);
+            button.disabled = isUploading || disabled;
+            button.addEventListener("click", handler);
+            controls.appendChild(button);
+        });
+        item.append(order, name, controls);
+        fileList.appendChild(item);
+        rows.set(file, item);
+        if (animate && item.animate && !globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+            const previous = positions.get(file);
+            const delta = previous === undefined ? 12 : previous - item.getBoundingClientRect().top;
+            item.animate([{ opacity: previous === undefined ? 0 : 1, transform: `translateY(${delta}px)` }, { opacity: 1, transform: "translateY(0)" }], {
+                duration: 260, delay: previous === undefined ? Math.min(index * 35, 140) : 0, easing: "cubic-bezier(.22,.85,.26,1)",
+            });
+        }
+    });
+    document.dispatchEvent(new CustomEvent("kf:files-changed"));
+}
+
+function restoreFocus(file, hadFocus, action = 2) {
+    if (!hadFocus) return;
+    const actions = rows.get(file)?.querySelectorAll("button");
+    const next = actions && (!actions[action]?.disabled ? actions[action] : [...actions].find(button => !button.disabled));
+    (next || fileInput).focus();
+}
+
+function moveFile(index, dir) {
+    if (isUploading) return;
+    const newIndex = index + dir;
+    if (newIndex < 0 || newIndex >= selectedFiles.length) return;
+    const hadFocus = fileList.contains(document.activeElement);
+    const file = selectedFiles[index];
+    [selectedFiles[index], selectedFiles[newIndex]] = [selectedFiles[newIndex], selectedFiles[index]];
+    renderFileList(true);
+    restoreFocus(file, hadFocus, dir > 0 ? 1 : 0);
+    announce(`已移到第 ${newIndex + 1} 页，来源页码已更新。`);
+}
+
+function removeFile(index) {
+    if (isUploading) return;
+    const hadFocus = fileList.contains(document.activeElement);
+    selectedFiles.splice(index, 1);
+    renderFileList(true);
+    restoreFocus(selectedFiles[Math.min(index, selectedFiles.length - 1)], hadFocus);
+    announce(selectedFiles.length ? `已移除照片，还剩 ${selectedFiles.length} 张。` : "照片列表已清空，可以重新添加。");
+}
+
+current = { get count() { return selectedFiles.length; }, get isUploading() { return isUploading; } };
+mounted.set(fileInput, current);
+renderFileList();
+
+generateBtn.addEventListener("click", async () => {
+    if (isUploading || selectedFiles.length === 0) return;
+    isUploading = true;
+    dropZone.classList.remove("dragover");
+    renderFileList();
+    announce("正在上传课堂照片，请稍候。");
+    const order = selectedFiles.map((_, i) => i + 1).join(",");
+    try {
+        const resp = await API.createTask(selectedFiles, order);
+        const data = await resp.json();
+        if (resp.status === 201) {
+            window.location.href = `/progress.html?task_id=${data.task_id}`;
+            return;
+        } else {
+            announce(`上传失败：${data.message || "未知错误"}。照片已保留，可以重试。`, true);
+        }
+    } catch (e) {
+        announce("网络错误，照片已保留，请重试。", true);
+    }
+    isUploading = false;
+    renderFileList();
+});
+return current;
+}
+globalThis.ClassroomUpload = { init, getState: () => ({ count: current?.count || 0, isUploading: current?.isUploading || false }) };
+init();
+})();
+
+(() => {
+    const mounted = new WeakMap();
+    function init() {
+    const list = document.getElementById("task-list");
+    if (!list) return Promise.resolve();
+    if (mounted.has(list)) return mounted.get(list);
+    const count = document.getElementById("task-count");
+    let expanded = null;
+    const statuses = new Map([
+        ["pending", "待处理"], ["running", "处理中"], ["success", "已完成"],
+        ["failed", "处理失败"], ["partial", "部分完成"],
+    ]);
+
+    function element(tag, className, text) {
+        const node = document.createElement(tag);
+        node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+    }
+
+    function showState(title, description, action) {
+        const state = element("div", "kf-history-state");
+        state.append(element("h3", "", title));
+        if (description) state.append(element("p", "", description));
+        if (action === "upload") {
+            const link = element("a", "kf-history-action kf-history-primary", "新建整理");
+            link.href = "/";
+            state.append(link);
+        } else if (action === "retry") {
+            state.setAttribute("role", "alert");
+            const retry = element("button", "kf-history-action kf-history-primary", "重新加载");
+            retry.type = "button";
+            retry.addEventListener("click", async () => {
+                const hadFocus = document.activeElement === retry;
+                await loadHistory();
+                if (hadFocus && document.activeElement === document.body) {
+                    const action = list.querySelector("button") || list.querySelector("a");
+                    if (action) action.focus();
+                }
+            });
+            state.append(retry);
+        }
+        list.replaceChildren(state);
+    }
+
+    function renderTask(task) {
+        const record = element("article", "kf-record");
+        const info = element("div", "kf-record-info");
+        const heading = element("div", "kf-record-heading");
+        const title = task.title && task.title !== "未命名任务" ? task.title : "课堂整理";
+        const status = statuses.has(task.status) ? task.status : "unknown";
+        heading.append(element("h3", "", title), element("span", `kf-status kf-status-${status}`, statuses.get(status) || "状态未知"));
+        const meta = element("div", "kf-record-meta");
+        // Existing API timestamps without an offset are stored as UTC.
+        const timestamp = String(task.created_at);
+        const date = new Date(/(?:Z|[+-]\d{2}:\d{2})$/i.test(timestamp) ? timestamp : `${timestamp}Z`);
+        const time = element("time", "", Number.isNaN(date.getTime()) ? "时间未知" : date.toLocaleString("zh-CN", {
+            year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false,
+        }));
+        if (!Number.isNaN(date.getTime())) time.dateTime = date.toISOString();
+        meta.append(element("span", "", `${task.page_count} 页`), time, element("span", "", `任务 #${task.task_id}`));
+        const paper = element("span", "kf-record-paper");
+        paper.setAttribute("aria-hidden", "true");
+        paper.append(element("span", ""), element("span", ""), element("span", ""));
+        const text = element("div", "kf-record-text");
+        text.append(heading, meta);
+        info.append(paper, text);
+        const actions = element("div", "kf-record-actions");
+        const id = encodeURIComponent(String(task.task_id));
+        const preview = element("button", "kf-history-action kf-record-preview", "展开大纲");
+        preview.type = "button";
+        preview.setAttribute("aria-expanded", "false");
+        preview.setAttribute("aria-controls", `outline-preview-${id}`);
+        preview.setAttribute("aria-label", `展开${title}的大纲，任务 ${task.task_id}`);
+        const panel = element("div", "kf-outline-preview");
+        panel.id = `outline-preview-${id}`;
+        panel.hidden = true;
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-label", `${title}的大纲预览`);
+        let loaded = false;
+        let pending = null;
+        function close() {
+            panel.hidden = true;
+            preview.textContent = "展开大纲";
+            preview.setAttribute("aria-expanded", "false");
+            preview.setAttribute("aria-label", `展开${title}的大纲，任务 ${task.task_id}`);
+        }
+        function loadPreview() {
+            if (pending) return pending;
+            panel.setAttribute("aria-busy", "true");
+            panel.replaceChildren(element("p", "kf-preview-message", "正在读取已保存的大纲…"));
+            pending = (async () => {
+                try {
+                    const response = await API.getOutline(task.task_id);
+                    if (!response.ok) throw new Error("Outline request failed");
+                    const data = await response.json();
+                    if (typeof data.markdown !== "string" || !data.markdown.trim()) throw new Error("Invalid outline");
+                    const lines = data.markdown.trim().split(/\r?\n/).filter(line => line.trim());
+                    const nodes = lines.slice(0, 20).map(line => element(/^#\s/.test(line) ? "h4" : /^#{2,6}\s/.test(line) ? "h5" : "p", "kf-preview-line", line.replace(/^#{1,6}\s+/, "").replace(/^[-*]\s+/, "").slice(0, 500)));
+                    nodes.push(element("p", "kf-preview-caption", lines.length > 20 || lines.some(line => line.length > 500) ? "内容较长，此处显示部分预览。可打开查看完整大纲。" : "已保存的大纲预览，可打开继续校对。"));
+                    panel.replaceChildren(...nodes);
+                    loaded = true;
+                } catch {
+                    const retry = element("button", "kf-history-action kf-record-open", "重新读取大纲");
+                    retry.type = "button";
+                    retry.addEventListener("click", async () => {
+                        const hadFocus = document.activeElement === retry;
+                        await loadPreview();
+                        if (hadFocus && !panel.hidden && document.activeElement === document.body) {
+                            (panel.querySelector("button") || preview).focus();
+                        }
+                    });
+                    panel.replaceChildren(element("p", "kf-preview-message", "暂时无法预览大纲。大纲可能尚未生成，请稍后重试，或打开任务查看。"), retry);
+                } finally {
+                    panel.setAttribute("aria-busy", "false");
+                    pending = null;
+                }
+            })();
+            return pending;
+        }
+        preview.addEventListener("click", () => {
+            if (!panel.hidden) { close(); expanded = null; return; }
+            if (expanded) expanded();
+            expanded = close;
+            panel.hidden = false;
+            preview.textContent = "收起大纲";
+            preview.setAttribute("aria-expanded", "true");
+            preview.setAttribute("aria-label", `收起${title}的大纲，任务 ${task.task_id}`);
+            if (!loaded) return loadPreview();
+        });
+        const open = element("a", "kf-history-action kf-record-open", "打开");
+        open.href = `/outline.html?task_id=${id}`;
+        open.setAttribute("aria-label", `打开${title}，任务 ${task.task_id}`);
+        const exportLink = element("a", "kf-history-action kf-record-export", "导出 Word");
+        exportLink.href = `/api/tasks/${id}/export`;
+        exportLink.setAttribute("aria-label", `导出${title}为 Word，任务 ${task.task_id}`);
+        actions.append(preview, open, exportLink);
+        const top = element("div", "kf-record-top");
+        top.append(info, actions);
+        record.append(top, panel);
+        return record;
+    }
+
+    async function loadHistory() {
+        list.setAttribute("aria-busy", "true");
+        count.textContent = "读取中";
+        showState("正在读取整理记录", "");
+        try {
+            const response = await API.listTasks();
+            if (!response.ok) throw new Error("History request failed");
+            const data = await response.json();
+            if (!Array.isArray(data.tasks)) throw new Error("Invalid history response");
+            const records = data.tasks.map(renderTask);
+            count.textContent = `${records.length} 条记录`;
+            if (records.length) list.replaceChildren(...records);
+            else showState("还没有整理记录", "添加课堂照片后，整理记录会保存在这里。", "upload");
+        } catch {
+            count.textContent = "未加载";
+            showState("暂时无法加载记录", "请检查网络连接，然后重新加载。", "retry");
+        } finally {
+            list.setAttribute("aria-busy", "false");
+        }
+    }
+
+    const ready = loadHistory();
+    mounted.set(list, ready);
+    return ready;
+    }
+    globalThis.ClassroomHistory = { init };
+    return init();
+})();
+
+(() => {
+    const root = document.getElementById("knowledge-flow-home");
+    const motionButton = root.querySelector(".kf-motion");
+    const controls = root.querySelector(".kf-motion-controls");
+    const speedButton = root.querySelector(".kf-speed-toggle");
+    const speedPanel = root.querySelector(".kf-speed-panel");
+    const speedInput = root.querySelector(".kf-speed-input");
+    const speedValue = root.querySelector(".kf-speed-value");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let playing = !reducedMotion.matches;
+    let motionChosen = false;
+    const normalizeSpeed = value => {
+        const number = Number(value);
+        return Number.isFinite(number) && number > 0 ? Math.min(3, Math.max(0.25, number)) : 1;
+    };
+    let speed = 1;
+    try { speed = normalizeSpeed(localStorage.getItem("knowledge-flow-speed")); } catch { /* Storage is optional. */ }
+
+    function applySpeed() {
+        speedInput.value = String(speed);
+        speedValue.textContent = `${speed}×`;
+        speedButton.textContent = `速度 ${speed}×`;
+        speedInput.setAttribute("aria-valuetext", `${speed} 倍速度`);
+        root.querySelectorAll(".kf-ribbon").forEach(ribbon => {
+            if (typeof ribbon.getAnimations === "function") {
+                // Preserve the current position while changing speed.
+                ribbon.getAnimations().forEach(animation => animation.updatePlaybackRate(speed));
+            } else {
+                root.style.setProperty("--kf-pace", String(1 / speed));
+            }
+        });
+    }
+
+    function closeSpeed() {
+        speedPanel.hidden = true;
+        speedButton.setAttribute("aria-expanded", "false");
+    }
+    speedButton.addEventListener("click", () => {
+        speedPanel.hidden = !speedPanel.hidden;
+        speedButton.setAttribute("aria-expanded", String(!speedPanel.hidden));
+    });
+    speedInput.addEventListener("input", () => {
+        speed = normalizeSpeed(speedInput.value);
+        applySpeed();
+        try { localStorage.setItem("knowledge-flow-speed", String(speed)); } catch { /* Still works without persistence. */ }
+    });
+    document.addEventListener("click", event => {
+        if (!controls.contains(event.target)) closeSpeed();
+    });
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !speedPanel.hidden) {
+            closeSpeed();
+            speedButton.focus();
+        }
+    });
+
+    function render() {
+        root.classList.toggle("kf-paused", !playing);
+        root.classList.toggle("kf-playing", playing);
+        motionButton.textContent = playing ? "暂停背景" : "播放背景";
+        motionButton.setAttribute("aria-pressed", String(!playing));
+        motionButton.disabled = false;
+    }
+
+    motionButton.addEventListener("click", () => {
+        motionChosen = true;
+        playing = !playing;
+        render();
+    });
+    reducedMotion.addEventListener("change", () => {
+        if (!motionChosen) playing = !reducedMotion.matches;
+        render();
+    });
+    render();
+    applySpeed();
+})();
+
+(() => {
+    const root = document.getElementById("knowledge-flow-home");
+    const main = document.querySelector(".kf-main");
+    const nav = root?.querySelector(".kf-nav");
+    if (!main || !nav) return;
+    const links = [...nav.querySelectorAll(".kf-nav-item")];
+    const paths = { upload: "/", history: "/history.html" };
+    const route = pathname => pathname === "/" || pathname === "/index.html" ? "upload" : pathname === "/history.html" ? "history" : null;
+    let current = route(window.location.pathname) || (root.classList.contains("kf-history-view") ? "history" : "upload");
+    let navigation = Promise.resolve();
+    let requestId = 0;
+    const views = new Map([[current, { section: main.querySelector("section"), title: document.title, scroll: window.scrollY || 0 }]]);
+    const marker = document.createElement("span");
+    marker.className = "kf-nav-indicator";
+    marker.setAttribute("aria-hidden", "true");
+    nav.appendChild(marker);
+    const draft = document.createElement("span");
+    draft.className = "kf-draft-marker";
+    draft.setAttribute("aria-hidden", "true");
+    const uploadLink = links.find(link => route(new URL(link.href, window.location.href).pathname) === "upload");
+    uploadLink?.appendChild(draft);
+
+    // The offline preview embeds the second view instead of fetching it.
+    const embeddedPreview = document.querySelector("template[data-workspace-page]") !== null;
+    document.querySelectorAll("template").forEach(template => {
+        const key = template.getAttribute("data-workspace-page");
+        if (!paths[key] || views.has(key)) return;
+        const section = template.content.querySelector("section");
+        if (section) views.set(key, { section, title: template.getAttribute("data-page-title") || document.title, scroll: 0 });
+    });
+    function announce(text) {
+        const status = document.getElementById("workspace-status");
+        if (status) status.textContent = text;
+    }
+    function alignMarker() {
+        const active = links.find(link => link.getAttribute("aria-current") === "page");
+        if (!active) return;
+        const bounds = active.getBoundingClientRect();
+        marker.style.width = `${bounds.width}px`;
+        marker.style.transform = `translateX(${bounds.left - nav.getBoundingClientRect().left}px)`;
+    }
+    function updateDraft() {
+        const count = globalThis.ClassroomUpload?.getState().count || 0;
+        draft.hidden = current !== "history" || !count;
+        uploadLink?.setAttribute("aria-label", count && current === "history" ? `新建整理，保留了 ${count} 张待整理照片` : "新建整理");
+    }
+    function setNavigation(page) {
+        links.forEach(link => {
+            const active = route(new URL(link.href, window.location.href).pathname) === page;
+            link.classList.toggle("kf-current", active);
+            if (active) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
+        });
+        alignMarker();
+    }
+    function animate(node, frames, duration) {
+        if (!node?.animate) return Promise.resolve();
+        return node.animate(frames, { duration, easing: "ease-in-out" }).finished.catch(() => {});
+    }
+    async function getView(page) {
+        if (views.has(page)) return views.get(page);
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+        try {
+            const response = await fetch(paths[page], { signal: controller.signal, credentials: "same-origin", headers: { Accept: "text/html" } });
+            if (!response.ok) throw new Error("Page request failed");
+            const parsed = new DOMParser().parseFromString(await response.text(), "text/html");
+            const section = parsed.querySelector(".kf-main")?.querySelector("section");
+            if (!section?.querySelector(page === "upload" ? "#file-input" : "#task-list")) throw new Error("Invalid workspace page");
+            const view = { section, title: parsed.title, scroll: 0 };
+            views.set(page, view);
+            return view;
+        } finally { clearTimeout(timeout); }
+    }
+    async function performNavigation(page, { historyMode = "push" } = {}, request) {
+        if (!paths[page]) return false;
+        if (page === current) return true;
+        if (globalThis.ClassroomUpload?.getState().isUploading) {
+            announce("照片正在上传，请稍候再切换。");
+            return false;
+        }
+        main.setAttribute("aria-busy", "true");
+        root.classList.add("kf-navigating");
+        try {
+            let target;
+            try { target = await getView(page); }
+            catch { announce("暂时无法切换页面，请重试。当前照片和顺序已保留。"); return false; }
+            if (request !== requestId) return true;
+            if (globalThis.ClassroomUpload?.getState().isUploading) {
+                announce("照片正在上传，请稍候再切换。");
+                return false;
+            }
+            const previous = views.get(current);
+            previous.scroll = window.scrollY || 0;
+            const hadFocus = previous.section.contains(document.activeElement);
+            // A short opacity-only transition also provides continuity with reduced motion.
+            const reducedMotion = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+            setNavigation(page);
+            await animate(previous.section, [{ opacity: 1 }, { opacity: 0 }], reducedMotion ? 120 : 160);
+            if (request !== requestId || globalThis.ClassroomUpload?.getState().isUploading) {
+                setNavigation(current);
+                if (request !== requestId) return true;
+                announce("照片正在上传，请稍候再切换。");
+                return false;
+            }
+            main.replaceChildren(target.section);
+            current = page;
+            document.title = target.title;
+            root.classList.toggle("kf-history-view", page === "history");
+            globalThis.ClassroomUpload?.init();
+            globalThis.ClassroomHistory?.init();
+            updateDraft();
+            if (historyMode === "push" && window.location.protocol !== "file:" && !embeddedPreview) {
+                window.history.pushState({ ...window.history.state, kfWorkspace: page }, "", paths[page]);
+            }
+            const count = globalThis.ClassroomUpload?.getState().count || 0;
+            announce(page === "upload" && count ? `已保留 ${count} 张照片和刚才的顺序，可以接着整理。` : page === "history" ? "可展开大纲快速回看，也可打开继续校对。" : "");
+            window.scrollTo?.({ top: target.scroll, behavior: "instant" });
+            await animate(target.section, [{ opacity: 0 }, { opacity: 1 }], reducedMotion ? 180 : 240);
+            if (hadFocus) {
+                const heading = target.section.querySelector("h1");
+                heading?.setAttribute("tabindex", "-1");
+                heading?.focus({ preventScroll: true });
+            }
+            return true;
+        } finally {
+            main.setAttribute("aria-busy", "false");
+            root.classList.remove("kf-navigating");
+        }
+    }
+    function navigate(page, options) {
+        const request = ++requestId;
+        const result = navigation.then(() => request !== requestId ? true : performNavigation(page, options, request));
+        navigation = result.catch(() => false);
+        return result;
+    }
+    document.addEventListener("click", event => {
+        if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const link = event.target.closest?.("a");
+        if (!link || link.getAttribute("download") !== null || (link.getAttribute("target") && link.getAttribute("target") !== "_self")) return;
+        const url = new URL(link.href, window.location.href);
+        const page = route(url.pathname);
+        if (!page || url.origin !== window.location.origin || url.search || url.hash) return;
+        event.preventDefault();
+        navigate(page);
+    });
+    window.addEventListener("popstate", async () => {
+        const page = route(window.location.pathname);
+        if (page && !await navigate(page, { historyMode: "none" })) {
+            window.history.replaceState({ ...window.history.state, kfWorkspace: current }, "", paths[current]);
+        }
+    });
+    document.addEventListener("kf:files-changed", updateDraft);
+    window.addEventListener("resize", alignMarker);
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(alignMarker).observe(nav);
+    root.classList.add("kf-enhanced");
+    setNavigation(current);
+    updateDraft();
+    globalThis.ClassroomWorkspace = { navigate };
+})();
+
+(() => {
+    const documentRoot = document.documentElement;
+    documentRoot.classList.add("kf-page-entering");
+
+    function init() {
+        const main = document.querySelector(".kf-main");
+        if (!main) {
+            documentRoot.classList.remove("kf-page-entering");
+            return;
+        }
+        const reducedMotion = () => globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+        let departing = false;
+        let departure;
+        let requestId = 0;
+
+        function cancelDeparture() {
+            requestId++;
+            departure?.cancel();
+            departure = null;
+            departing = false;
+            main.setAttribute("aria-busy", "false");
+        }
+
+        function enter() {
+            cancelDeparture();
+            const entry = main.animate?.([{ opacity: 0 }, { opacity: 1 }], {
+                duration: reducedMotion() ? 180 : 240,
+                easing: "ease-in-out",
+                fill: "backwards",
+            });
+            documentRoot.classList.remove("kf-page-entering");
+            entry?.finished.catch(() => {});
+        }
+
+        document.addEventListener("click", async event => {
+            if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            const link = event.target.closest?.("a");
+            if (!link || link.getAttribute("download") !== null || (link.getAttribute("target") && link.getAttribute("target") !== "_self")) return;
+            const url = new URL(link.href, window.location.href);
+            if (url.origin !== window.location.origin || !["http:", "https:"].includes(url.protocol) || url.hash) return;
+            const workspacePath = ["/", "/index.html", "/history.html"].includes(url.pathname);
+            // The workspace router may already have handled this newer choice.
+            if (departing && workspacePath) cancelDeparture();
+            if (event.defaultPrevented || url.href === window.location.href) return;
+            const opensOutline = url.pathname === "/outline.html";
+            const returnsToWorkspace = window.location.pathname === "/outline.html" && workspacePath;
+            if (!opensOutline && !returnsToWorkspace) return;
+            event.preventDefault();
+            if (departing) return;
+            departing = true;
+            const request = ++requestId;
+            main.setAttribute("aria-busy", "true");
+            departure = main.animate?.([{ opacity: 1 }, { opacity: 0 }], {
+                duration: reducedMotion() ? 120 : 160,
+                easing: "ease-in-out",
+                fill: "forwards",
+            });
+            if (departure) await departure.finished.catch(() => {});
+            if (request !== requestId) return;
+            window.location.assign(url.href);
+        });
+
+        window.addEventListener("popstate", () => { if (departing) cancelDeparture(); });
+        window.addEventListener("pagehide", () => { requestId++; });
+        // A cached document retains its finished departure animation when Back restores it.
+        window.addEventListener("pageshow", event => { if (event.persisted) enter(); });
+        enter();
+    }
+
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
+    else init();
+})();
+
+</script>
+</body>
+</html>

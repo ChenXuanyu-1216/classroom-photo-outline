@@ -1,0 +1,23 @@
+.editor { width: 100%; min-height: 650rpx; margin-top: 28rpx; font-size: 27rpx; line-height: 1.9; color: #253e35; }
+.outline-text { display: block; white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 28rpx; font-size: 27rpx; line-height: 1.9; }
+.source-list { display: inline-flex; gap: 20rpx; margin-top: 24rpx; padding-bottom: 12rpx; }
+.outline-reader { padding: 10rpx 0 20rpx; }
+.reading-block { margin-top: 24rpx; }
+.reading-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 2; font-size: 26rpx; }
+.reading-h1 { font: 500 44rpx/1.6 'Songti SC','SimSun',serif; margin-bottom: 32rpx; }
+.reading-h1 .reading-text { font: inherit; }
+.reading-h2 { margin-top: 38rpx; padding: 0 0 12rpx; border-bottom: 1rpx solid #e1e5d7; }
+.reading-h2 .reading-text { font: 500 34rpx/1.8 'Songti SC','SimSun',serif; }
+.reading-h3 .reading-text { font: 500 29rpx/1.8 'Songti SC','SimSun',serif; }
+.point-body { display: flex; gap: 12rpx; }
+.point-dot { color: #8aa16c; font-size: 36rpx; line-height: 1.5; }
+.point-meta { display: flex; gap: 14rpx; align-items: center; flex-wrap: wrap; margin-top: 8rpx; padding-left: 22rpx; }
+.type-label { color: #6d835f; font-size: 19rpx; }.type-ai { color: #997641; }
+.source-link { display: inline; padding: 0; margin: 0; color: #6b835c; text-decoration: underline; background: transparent; font-size: 20rpx; line-height: 2; }
+.source-panel { margin-top: 36rpx; padding-top: 28rpx; border-top: 1rpx solid #e1e5d7; }
+.source-scroll { width: 100%; white-space: nowrap; }
+.source-tile { width: 200rpx; padding: 8rpx; background: #fcfbf5; border: 1rpx solid #e3e2d1; flex-shrink: 0; }
+.source-tile image { display: block; width: 100%; height: 140rpx; background: #eeeade; }
+.source-placeholder { height: 140rpx; background: #eeeade; color: #869179; font-size: 21rpx; display: flex; align-items: center; justify-content: center; }
+.source-caption { font-size: 19rpx; line-height: 1.8; color: #869179; overflow: hidden; text-overflow: ellipsis; }
+.card { border: 0; padding: 0; box-shadow: none; margin-top: 26rpx; background: transparent; }

@@ -1,0 +1,43 @@
+{
+  "version": "1.2.1",
+  "reference_status": "development_regressions_ai_assisted_visual_review_not_independent_gold",
+  "diagram_cases": {
+    "CP003": {
+      "required_edges": [
+        ["机器学习", "监督学习"], ["机器学习", "无监督学习"],
+        ["监督学习", "回归"], ["监督学习", "分类"],
+        ["决策树", "ID3"], ["决策树", "C4.5"], ["决策树", "CART"],
+        ["CART", "分类和回归树"],
+        ["人工神经网络", "感知机"], ["人工神经网络", "梯度下降"], ["人工神经网络", "深度学习"]
+      ],
+      "forbidden_edges": [["人工神经网络", "分类和回归树"], ["人工神经网络", "CART"]]
+    },
+    "CP008": {
+      "required_flow": ["数据收集", "数据清洗", "特征工程", "数据建模", "部署评估"],
+      "allowed_feedback_flows": [["部署评估", "特征工程"]],
+      "required_standalone_notes": ["基于性能指标比较几种机器学习模型", "对最佳模型执行超参数调整", "在测试集上评估最佳模型", "解释模型结果", "得出结论"]
+    }
+  },
+  "expansion_cases": {
+    "vue_controls": {
+      "anchor": "Vue 原生表单 v-model：文本输入 input/textarea、checkbox、radio 和 select 的双向绑定。",
+      "source": "https://vuejs.org/guide/essentials/forms.html#basic-usage",
+      "expected": "文本 value/input；checkbox 和 radio checked/change；select value/change。不能将全部控件或自定义组件概括为 value/input；响应式模型赋值与 DOM 延后刷新必须区分。",
+      "additional_reference": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html#dom-update-timing"
+    },
+    "label_metrics": {
+      "anchor": "监督学习：概率模型 P(y|x) 与非概率模型 y=f(x)，分类预测及评价指标。",
+      "source": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "expected": "真实和预测类别可计算准确率、精确率、召回率及 F1；二分类 ROC-AUC 可用决策分数。对数损失需要概率预测但不要求已经校准；校准曲线输入概率，校准方法可接受原始决策分数。不能声称非概率模型只能评价边界或排序，不能将逻辑回归归为非概率模型，也不能将概率、判别式与非参数混成互斥分类。",
+      "additional_reference": "https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression",
+      "metric_references": ["https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html", "https://scikit-learn.org/stable/modules/calibration.html", "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html"]
+    }
+  },
+  "development_gate": {
+    "repeat_each_case": 3,
+    "required_case_pass_rate": 1.0,
+    "critical_or_major_errors_allowed": 0,
+    "missing_case_is_failure": true,
+    "independent_human_review_required_for_formal_acceptance": true
+  }
+}

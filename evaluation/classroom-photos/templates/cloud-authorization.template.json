@@ -1,0 +1,6 @@
+{
+  "provider": "deepseek",
+  "dataset_id": null,
+  "cloud_upload_allowed": false,
+  "sample_sha256": {}
+}

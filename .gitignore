@@ -1,0 +1,46 @@
+# Local development tool state
+.codeartsdoer/
+.idea/
+.vscode/
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.test-r*/
+
+# Local secrets; keep the documented template
+.env
+.env.*
+!.env.example
+!.env.cloud.example
+!.env.reviewer.example
+
+# Application runtime data
+/lecture-syllabus-generator/backend/data/
+/lecture-syllabus-generator/backend/storage/
+*.log
+
+# Private evaluation photos, permissions, annotations and run outputs
+/evaluation/classroom-photos/local/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Device-specific mini-program settings and generated local artifacts
+/miniprogram/project.private.config.json
+/output/
+
+# Private local source-reviewer configuration and data
+/.reviewer-data/

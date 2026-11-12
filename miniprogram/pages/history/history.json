@@ -1,0 +1,1 @@
+{ "navigationBarTitleText": "整理记录", "enablePullDownRefresh": true, "backgroundTextStyle": "dark", "usingComponents": { "studio-header": "/components/studio-header/studio-header" } }

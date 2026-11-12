@@ -1,0 +1,13 @@
+{
+  "protocol_version": "classroom-photo-v0.1",
+  "status": "template_awaiting_authorized_photos",
+  "dataset_id": null,
+  "version": null,
+  "frozen_at": null,
+  "courses": [],
+  "authorizations": [],
+  "pages": [],
+  "task_groups": [],
+  "duplicate_groups": [],
+  "separation_groups": []
+}

@@ -1,0 +1,30 @@
+<view class="screen">
+  <studio-header current="outline" compact="{{true}}" locked="{{busy}}"/>
+  <view class="paper paper-enter"><view class="paper-heading"><view class="folio">让每个知识点，都有来处</view>
+  <view class="eyebrow">任务 #{{id}} / 第 {{version}} 版</view><view class="title">你的学习大纲</view>
+  </view><view class="paper-body">
+  <view wx:if="{{demo || mode === 'mock'}}" class="notice">当前服务为 mock 预设演示模式。请勿将演示内容作为照片真实识别结果。</view>
+  <view wx:elif="{{mode === 'unverified'}}" class="notice">本大纲的识别来源未经确认，请对照原图核对。</view>
+  <view wx:if="{{error}}" class="notice error">{{error}}<button bindtap="load" disabled="{{busy}}">重新读取</button><button bindtap="progress">查看处理状态</button></view>
+  <view wx:if="{{loading}}" class="card muted">正在读取大纲…</view>
+  <block wx:if="{{!(loading || error)}}">
+    <view wx:if="{{warnings.length}}" class="notice"><view class="section-title">这些内容需要校对</view><view wx:for="{{warnings}}" wx:key="*this">{{item}}</view></view>
+    <view class="card">
+      <view class="row"><text class="section-title">{{editing ? '编辑 Markdown' : '大纲正文'}}</text><button class="small" bindtap="toggleEdit" disabled="{{busy}}">{{editing ? '阅读' : '编辑'}}</button></view>
+      <view class="muted spaced">{{dirty ? '有未保存编辑，请保存修改' : '当前内容已与服务器同步'}}</view>
+      <view wx:if="{{draftWarning}}" class="notice error">{{draftWarning}}</view>
+      <textarea wx:if="{{editing}}" class="editor" value="{{markdown}}" maxlength="-1" auto-height bindinput="edit" disabled="{{busy}}" placeholder="在这里编辑大纲…"/>
+      <view wx:else class="outline-reader">
+        <view wx:for="{{blocks}}" wx:key="key" class="reading-block reading-{{item.type}}">
+          <view class="point-body"><text wx:if="{{item.type === 'point'}}" class="point-dot">·</text><text class="reading-text" selectable>{{item.text}}</text></view>
+          <view wx:if="{{item.label || item.sources.length}}" class="point-meta"><text wx:if="{{item.label}}" class="type-label {{item.label === 'AI生成' ? 'type-ai' : ''}}">{{item.label}}</text><button wx:for="{{item.sources}}" wx:for-item="source" wx:key="*this" class="source-link" data-page="{{source}}" bindtap="preview">{{item.sourceKind}} P{{source}}</button></view>
+        </view>
+      </view>
+    </view>
+    <view class="actions spaced"><button class="primary" bindtap="save" disabled="{{busy || !dirty}}" loading="{{busy}}">保存修改</button><button bindtap="exportWord" disabled="{{busy}}">导出 Word</button></view>
+    <view class="muted spaced">导出前会先保存当前修改。文件打开后，可通过预览菜单转发或保存。</view>
+    <view class="source-panel"><view class="section-title">课堂来源</view><view class="muted spaced">对照原始照片，随时回到知识的出处。</view><scroll-view scroll-x class="source-scroll"><view class="source-list"><view wx:for="{{pages}}" wx:key="page_no" class="source-tile" data-page="{{item.page_no}}" bindtap="preview"><image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" mode="aspectFit"/><view wx:else class="source-placeholder">点击查看原图</view><view class="source-caption">P{{item.page_no}} · {{item.filename}}</view></view></view></scroll-view></view>
+    <button bindtap="progress">查看处理状态 / 重试失败页</button><button bindtap="regenerate" disabled="{{busy}}">重新生成大纲</button>
+  </block>
+  </view></view>
+</view>

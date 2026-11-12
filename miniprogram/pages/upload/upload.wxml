@@ -1,0 +1,44 @@
+<view class="screen">
+  <view wx:if="{{privacyOpen}}" class="photo-privacy-mask">
+    <view class="photo-privacy-dialog">
+      <view class="section-title">选择照片前，请阅读隐私指引</view>
+      <view class="photo-privacy-copy">你选择的课堂照片将在点击“生成大纲”后上传至后端，并发送至 DeepSeek 进行识别与生成；照片和大纲会保存在你的账号下。</view>
+      <button class="photo-privacy-link" bindtap="openPhotoPrivacy">阅读{{privacyContractName}}</button>
+      <button id="photo-privacy-agree" class="primary spaced" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="agreePhotoPrivacy">同意并选择照片</button>
+      <button class="spaced" bindtap="declinePhotoPrivacy">暂不选择</button>
+    </view>
+  </view>
+  <studio-header current="{{activeView}}" workspace="{{true}}" bind:navigate="switchWorkspace" locked="{{busy || loginBusy || historyBusy}}"/>
+  <view class="account-row"><text class="muted">{{userId ? '我的课堂 · 已登录' : '登录后仅查看自己的课堂资料'}}</text><button wx:if="{{!userId}}" class="small" bindtap="login" loading="{{loginBusy}}" disabled="{{busy || loginBusy}}">微信登录</button><button wx:else class="small" bindtap="logout" disabled="{{busy || loginBusy}}">退出登录</button></view>
+  <view class="workspace-frame {{turning ? 'is-turning' : ''}}">
+  <view class="workspace-leaf {{activeView === 'upload' ? 'leaf-current' : ''}} {{turning === 'to-history' ? 'leaf-turn-out' : turning === 'to-upload' ? 'leaf-turn-in' : ''}}" hidden="{{activeView !== 'upload' ? !turning : false}}">
+  <view class="paper">
+    <view class="paper-heading"><view class="folio">你的课堂笔记</view><view class="paper-title">从几张照片，开始整理。</view><view class="paper-description">把课堂上的片刻，变成可以反复阅读的知识。</view></view>
+    <view class="paper-body">
+    <view class="row"><view class="section-title">课堂照片</view><text class="muted">{{files.length}} / {{maxFiles}} 张</text></view>
+    <view wx:if="{{connectionError}}" class="notice error">{{connectionError}}<button class="small spaced" bindtap="connect">重新检查服务</button></view>
+    <view wx:elif="{{meta.model_provider === 'mock'}}" class="notice">演示模式 · 返回预设内容，不会识别照片。真实识别请启用后端模型。</view>
+    <view wx:elif="{{meta}}" class="notice">{{meta.model_ready ? '识别服务已连接' : '模型尚未配置'}} · {{meta.model_name}}<view wx:if="{{!meta.model_ready}}">请先在 Python 后端配置模型密钥。</view></view>
+    <view wx:else class="notice">正在检查识别服务…</view>
+    <view class="drop-zone"><text class="drop-plus">＋</text><view class="drop-title">添加课堂照片</view><view class="muted">从相册选择，或拍摄课堂照片</view><button class="primary choose-button" bindtap="choose" disabled="{{busy || !!createdId || files.length >= maxFiles}}">选择照片</button><view class="drop-hint">JPG / PNG · 最多 {{maxFiles}} 张 · 本批合计不超过 8MB</view></view>
+    <view class="row list-heading"><text>照片列表</text><text>{{files.length}} 张 · {{totalMB}}MB</text></view>
+    <view wx:if="{{!files.length}}" class="empty muted">还没有添加照片</view>
+    <view wx:for="{{files}}" wx:key="key" class="photo-row">
+      <image class="thumbnail" src="{{item.path}}" mode="aspectFill" data-index="{{index}}" bindtap="preview"/>
+      <view class="photo-info"><view>第 {{index + 1}} 页</view><view class="actions">
+        <button class="small" data-index="{{index}}" data-step="-1" bindtap="move" disabled="{{busy || !!createdId || index === 0}}">上移</button>
+        <button class="small" data-index="{{index}}" data-step="1" bindtap="move" disabled="{{busy || !!createdId || index === files.length - 1}}">下移</button>
+        <button class="small danger" data-index="{{index}}" bindtap="remove" disabled="{{busy || !!createdId}}">移除</button>
+      </view></view>
+    </view>
+    <view class="generate-footer"><view class="muted">照片顺序将作为来源页码。</view><button class="primary" loading="{{busy}}" disabled="{{busy || (createdId ? false : (!files.length || !meta))}}" bindtap="upload">{{createdId ? '打开已上传任务' : '生成大纲'}}</button></view>
+    </view>
+  </view>
+  <view class="page-note">生成后可继续校对，并导出 Word。AI 生成结果仅供参考，请人工校对后使用。</view>
+  <view class="connection-settings"><view class="row"><text class="muted">{{meta ? '服务已连接' : '连接设置'}}</text><button class="small" bindtap="toggleSettings">{{settingsOpen ? '收起设置' : '服务连接设置'}}</button></view>
+    <view wx:if="{{settingsOpen}}"><input value="{{server}}" bindinput="serverInput" placeholder="https://你的服务域名" maxlength="240" disabled="{{busy}}"/><button bindtap="saveServer" disabled="{{busy}}">保存并连接</button><view class="muted spaced">手机调试需填写电脑局域网地址；正式发布使用已配置的 HTTPS 合法域名。</view></view>
+  </view>
+  </view>
+  <view class="workspace-leaf {{activeView === 'history' ? 'leaf-current' : ''}}" hidden="{{activeView !== 'history' ? !turning : false}}"><history-panel id="history-pane" active="{{activeView === 'history'}}" bind:create="newUpload" bind:busy="historyBusy" bind:authchange="accountChanged"/></view>
+  </view>
+</view>

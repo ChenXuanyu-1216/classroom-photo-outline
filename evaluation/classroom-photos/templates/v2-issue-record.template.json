@@ -1,0 +1,59 @@
+{
+  "protocol_version": "v2-exp05-handoff-v0.1",
+  "record_kind": "manual_or_test_report_template_not_automatic_audit",
+  "status": "not_run",
+  "issue_id": null,
+  "run_id": null,
+  "case_id": null,
+  "mode": null,
+  "input_manifest_path": null,
+  "sample_ids": [],
+  "code_commit": null,
+  "working_tree_dirty": null,
+  "code_hashes": {},
+  "prompt_hashes": {},
+  "model_name": null,
+  "task_id": null,
+  "failed_job_id": null,
+  "page_no": null,
+  "started_at": null,
+  "finished_at": null,
+  "elapsed_seconds": null,
+  "failure": {
+    "category": null,
+    "classification_basis": null,
+    "stage": null,
+    "job_code": null,
+    "page_code": null,
+    "safe_message": null,
+    "retryable": null,
+    "http_status": null,
+    "attempt_count": null,
+    "provider_request_id": null
+  },
+  "handling": {
+    "automatic_action": null,
+    "manual_action": null,
+    "old_outline_preserved": null,
+    "recovery_job_id": null,
+    "outcome": null,
+    "reason": null
+  },
+  "evidence": {
+    "before_task_snapshot": null,
+    "before_job_snapshot": null,
+    "before_pages_snapshot": null,
+    "safe_log_path": null,
+    "after_job_snapshot": null,
+    "after_pages_snapshot": null,
+    "output_review_path": null
+  },
+  "budget": {
+    "ledger_reference": null,
+    "reserved_before_fen": null,
+    "reserved_after_fen": null,
+    "actual_charge_cny": null
+  },
+  "remaining_limitation": null,
+  "reviewer": null
+}

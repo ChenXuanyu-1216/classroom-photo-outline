@@ -1,0 +1,4 @@
+.section-title { overflow-wrap: anywhere; }
+.record { border-bottom: 1rpx solid #e3e5d6; padding: 34rpx 0; }
+.record .section-title { font-size: 32rpx; }
+.record .actions button { font-size: 22rpx; }

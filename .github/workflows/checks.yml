@@ -1,0 +1,87 @@
+name: Application checks
+on:
+  push:
+    branches: [main, "codex/**"]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install backend test dependencies
+        run: python -m pip install -r lecture-syllabus-generator/backend/requirements.txt -r lecture-syllabus-generator/backend/requirements-dev.txt
+      - name: Backend regression (isolated database and mocked models)
+        working-directory: lecture-syllabus-generator/backend
+        run: python -m pytest -q
+      - name: Source reviewer runtime (isolated data and mocked model)
+        run: python -m pytest scripts/tests/test_reviewer_runtime.py -q
+      - name: Website regression
+        run: node --test lecture-syllabus-generator/frontend/tests/*.test.cjs
+      - name: Mini-program regression when present
+        if: ${{ hashFiles('miniprogram/tests/*.test.cjs') != '' }}
+        run: node --test miniprogram/tests/*.test.cjs
+  mysql-cloud:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - version: "8.0"
+            table_case: "1"
+          - version: "8.4"
+            table_case: "0"
+    services:
+      mysql:
+        image: mysql:${{ matrix.version }}
+        command: --lower-case-table-names=${{ matrix.table_case }}
+        env:
+          MYSQL_ROOT_PASSWORD: ci_root_only
+          MYSQL_DATABASE: kezhao_test_ci
+          MYSQL_USER: kezhao
+          MYSQL_PASSWORD: ci_synthetic_only
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pci_root_only"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+    env:
+      APP_TEST_MYSQL_URL: mysql+pymysql://kezhao:ci_synthetic_only@127.0.0.1:3306/kezhao_test_ci
+      APP_TEST_MYSQL_TABLE_CASE: ${{ matrix.table_case }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r lecture-syllabus-generator/backend/requirements.txt -r lecture-syllabus-generator/backend/requirements-dev.txt
+      - name: Real MySQL schema and concurrency contracts
+        working-directory: lecture-syllabus-generator/backend
+        run: python -m pytest tests/integration -q
+  container-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Linux production image
+        run: docker build -t kezhao-ci .
+      - name: Verify non-root image and excluded local files
+        run: |
+          test "$(docker inspect -f '{{.Config.User}}' kezhao-ci)" = "10001:10001"
+          docker run --rm --entrypoint python kezhao-ci -c "from pathlib import Path; r=Path('/srv/app'); forbidden=[p for p in r.rglob('*') if p.name.startswith('.env') or p.suffix in {'.db','.token','.key','.pem'} or p.name in {'.git','.venv','tests'}]; assert not forbidden, forbidden"
+      - name: Smoke test isolated local profile on nondefault port
+        run: |
+          docker run -d --name kezhao-smoke -p 8080:8080 -e PORT=8080 -e APP_DEPLOYMENT_MODE=local -e APP_MODEL_PROVIDER=mock kezhao-ci
+          trap 'docker logs kezhao-smoke; docker rm -f kezhao-smoke' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8080/health/ready; then exit 0; fi
+            sleep 2
+          done
+          exit 1

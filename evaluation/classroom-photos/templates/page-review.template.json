@@ -1,0 +1,28 @@
+{
+  "protocol_version": "classroom-photo-v0.1",
+  "status": "template",
+  "run_id": null,
+  "sample_id": null,
+  "task_group_id": null,
+  "logical_page_no": null,
+  "gold_version": null,
+  "rater_id": null,
+  "output_stage": null,
+  "output_evidence_path": null,
+  "execution_status": "pending",
+  "transcription_notes": [],
+  "title_review": null,
+  "unit_matches": [],
+  "unsupported_output_units": [],
+  "scores": {
+    "faithfulness": {"status": "pending", "numerator": null, "denominator": null, "score": null, "reason": null},
+    "coverage": {"status": "pending", "numerator": null, "denominator": null, "score": null, "reason": null},
+    "provenance": {"status": "pending", "numerator": null, "denominator": null, "score": null, "reason": null},
+    "uncertainty": {"status": "pending", "score": null, "reason": null}
+  },
+  "uncertainty_region_reviews": [],
+  "false_low_clarity_warning": null,
+  "critical_errors": [],
+  "normalized_descriptive_score": null,
+  "adjudication_record_path": null
+}

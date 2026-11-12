@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>整理记录 · 课堂大纲</title>
+  <link rel="stylesheet" href="/css/home.css?v=20261020-service-check">
+  <link rel="stylesheet" href="/css/history.css">
+  <link rel="stylesheet" href="/css/book.css?v=20261025-paper">
+  <script src="/js/page-transition.js"></script>
+</head>
+<body id="knowledge-flow-home" class="kf-book-skin kf-history-view">
+  <header class="kf-header">
+    <div class="kf-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"/><path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"/></svg><span>课堂大纲</span></div>
+    <nav class="kf-nav" aria-label="主导航">
+      <a class="kf-nav-item" href="/">新建整理</a>
+      <a class="kf-nav-item kf-current" href="/history.html" aria-current="page">整理记录</a>
+    </nav>
+    <div class="kf-motion-controls">
+      <button class="kf-speed-toggle" type="button" aria-expanded="false" aria-controls="kf-speed-panel">速度 1×</button>
+      <div class="kf-speed-panel" id="kf-speed-panel" hidden>
+        <label for="kf-speed">流动速度 <output class="kf-speed-value" for="kf-speed">1×</output></label>
+        <input class="kf-speed-input" id="kf-speed" type="range" min="0.25" max="3" step="0.25" value="1">
+        <div class="kf-speed-hints"><span>舒缓</span><span>轻快</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="kf-main">
+    <section aria-labelledby="history-heading">
+      <div class="kf-heading">
+        <h1 id="history-heading">翻回那些学过的时刻。</h1>
+        <p>回看每一次课堂整理，继续校对与导出。</p>
+      </div>
+      <div class="kf-workspace kf-history-workspace">
+        <div class="kf-section-head"><h2>全部记录</h2><span id="task-count">读取中</span></div>
+        <div id="task-list" class="kf-history-list" aria-live="polite" aria-busy="true">
+          <div class="kf-history-state"><h3>正在读取整理记录</h3></div>
+        </div>
+      </div>
+      <p class="kf-note">记录按创建时间排列，最近的整理显示在前。</p>
+      <p id="workspace-status" class="kf-workspace-notice" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="/js/auth.js"></script>
+  <script src="/js/api.js?v=20261020-service-check"></script>
+  <script src="/js/upload.js?v=20261020-service-check"></script>
+  <script src="/js/history.js"></script>
+  <script src="/js/book-source-map.js?v=20261025-paper"></script>
+  <script src="/js/book-ui.js?v=20261025-paper"></script>
+  <script src="/js/workspace.js"></script>
+</body>
+</html>

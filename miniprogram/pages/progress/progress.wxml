@@ -1,0 +1,24 @@
+<view class="screen">
+  <studio-header current="progress" compact="{{true}}" locked="{{busy}}"/>
+  <view class="paper paper-enter"><view class="paper-heading">
+  <view class="eyebrow">任务 #{{id}}</view><view class="title">{{title}}</view><view class="intro">{{message}}</view>
+  </view><view class="paper-body">
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view class="card"><view class="row"><view class="section-title">处理状态</view><text class="badge">{{running ? '后台进行中' : '等待操作'}}</text></view>
+    <view class="muted spaced">识别 → 提取要点 → 整理大纲。后端统一执行，暂不提供百分比进度。</view>
+    <button bindtap="refresh" disabled="{{busy || reading}}">重新检查状态</button>
+    <button wx:if="{{canGenerate}}" class="primary" bindtap="generate" loading="{{busy}}" disabled="{{busy || reading || running}}">{{hasOutline ? '根据当前识别重新生成大纲' : '开始整理大纲'}}</button>
+    <button wx:if="{{hasOutline}}" class="primary" bindtap="outline">查看已保存大纲</button>
+  </view>
+  <view class="card"><view class="section-title">照片检查 · {{pages.length}} 页</view>
+    <view class="muted spaced">重试失败页完成后，请点击上方生成按钮，将更新内容整理进大纲。</view>
+    <view wx:for="{{pages}}" wx:key="page_no" class="page-status">
+      <view class="row"><text>P{{item.page_no}} · {{item.filename}}</text><text class="badge">{{item.failed_flag ? '失败' : item.low_confidence_flag ? '需校对' : '已上传'}}</text></view>
+      <view wx:if="{{item.error_msg}}" class="notice error">{{item.error_msg}}</view>
+      <view wx:if="{{item.failed_flag ? !item.canRetry : false}}" class="muted spaced">本页暂不可重试，请检查配置或换一张清晰照片。</view>
+      <button wx:if="{{item.canRetry}}" bindtap="retryPage" data-page="{{item.page_no}}" disabled="{{busy || reading || running}}">重试第 {{item.page_no}} 页</button>
+    </view>
+  </view>
+  <button bindtap="history">返回整理记录</button>
+  </view></view>
+</view>

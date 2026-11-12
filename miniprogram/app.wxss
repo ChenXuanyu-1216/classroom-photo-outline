@@ -1,0 +1,32 @@
+page { background: #f5f1e8; color: #283e33; font-family: 'PingFang SC', 'Microsoft YaHei UI', sans-serif; font-size: 26rpx; }
+.screen { max-width: 1120rpx; margin: 0 auto; padding: 16rpx 32rpx 70rpx; padding-bottom: calc(70rpx + env(safe-area-inset-bottom)); }
+.eyebrow { font-size: 20rpx; letter-spacing: 4rpx; color: #949981; margin: 32rpx 0 12rpx; }
+.title { font: 500 43rpx/1.6 'Songti SC', 'SimSun', serif; margin-bottom: 12rpx; }
+.intro, .muted { color: #86907d; font-size: 23rpx; line-height: 1.9; }
+.card, .paper { background: #fffefa; border: 1rpx solid #e4e1d2; border-radius: 2rpx 12rpx 12rpx 2rpx; padding: 28rpx; margin-top: 28rpx; box-shadow: 0 8rpx 26rpx #4f493808; }
+.paper { padding: 0; }
+.paper-heading { padding: 32rpx 34rpx 28rpx; border-bottom: 1rpx solid #e9e7dc; }
+.folio { font-size: 19rpx; letter-spacing: 4rpx; color: #949981; margin-bottom: 15rpx; }
+.paper-title { font: 500 39rpx/1.7 'Songti SC', 'SimSun', serif; }
+.paper-description { color: #8b917f; font-size: 22rpx; line-height: 1.9; margin-top: 10rpx; }
+.paper-body { padding: 30rpx 34rpx; }
+.page-note { margin: 24rpx 8rpx 0; font-size: 21rpx; color: #939b86; line-height: 1.9; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
+.section-title { font: 500 28rpx 'Songti SC', 'SimSun', serif; }
+.notice { background: #f4f6ef; border-radius: 5rpx; padding: 18rpx 20rpx; margin-top: 22rpx; font-size: 22rpx; color: #77856b; line-height: 1.9; }
+.error { color: #98593c; background: #faf1e9; }
+.badge { font-size: 20rpx; padding: 5rpx 12rpx; background: #edf2e6; color: #59734a; border-radius: 4rpx; flex-shrink: 0; }
+button { width: auto; font-size: 25rpx; line-height: 2.9; border-radius: 6rpx; margin: 20rpx 0 0; padding: 0 24rpx; background: #eef2e6; color: #24483e; font-weight: 400; }
+button::after { border: none; }
+button.primary { background: #24483e; color: #fffefa; }
+button.danger { color: #9c382b; background: #f9e8df; }
+button[disabled] { opacity: .45; }
+button.small { display: inline-flex; align-items: center; justify-content: center; flex: none; width: auto; font-size: 22rpx; padding: 0 18rpx; margin: 0; line-height: 2.7; }
+.actions { display: flex; flex-wrap: wrap; gap: 16rpx; margin-top: 18rpx; }
+.actions button { flex: 1; min-width: 180rpx; margin: 0; }
+input { border-bottom: 1rpx solid #d7dccf; padding: 20rpx 0; font-size: 25rpx; }
+.empty { text-align: center; padding: 60rpx 20rpx; }
+.spaced { margin-top: 20rpx; }
+.paper-enter { animation: paper-open .45s ease-out both; transform-origin: left top; }
+@keyframes paper-open { from { opacity: .5; transform: translateY(10rpx) rotateY(-5deg); } to { opacity: 1; transform: translateY(0) rotateY(0); } }
+@media (prefers-reduced-motion: reduce) { .paper-enter { animation: none; } }

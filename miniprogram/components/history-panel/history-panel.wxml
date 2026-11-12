@@ -1,0 +1,10 @@
+<view class="paper">
+  <view class="paper-heading"><view class="folio">留给未来的自己</view><view class="paper-title">把散落的片刻，连成自己的星图。</view><view class="paper-description">你读过的、想过的、记下的，都在这里，等下一次相遇。</view></view>
+  <view class="paper-body"><view class="row"><view class="section-title">整理记录</view><button class="small" bindtap="create">＋ 新建整理</button></view>
+    <view wx:if="{{error}}" class="notice error">{{error}}<button bindtap="load">重新加载</button></view>
+    <view wx:if="{{loading}}" class="muted spaced">正在读取整理记录…</view>
+    <view wx:if="{{!(loading || tasks.length || error)}}" class="empty"><view class="section-title">还没有整理记录</view><view class="muted spaced">选择一组课堂照片，开始第一次整理。</view></view>
+    <view wx:for="{{tasks}}" wx:key="task_id" class="record"><view class="row"><view class="section-title">{{item.title || '未命名任务'}}</view><text class="badge">{{item.label}}</text></view><view class="muted spaced">#{{item.task_id}} · {{item.page_count}} 页 · {{item.date}}</view><view class="actions"><button class="primary" data-id="{{item.task_id}}" bindtap="open">{{item.active ? '查看进度' : '打开记录'}}</button><button class="danger" data-id="{{item.task_id}}" bindtap="remove" disabled="{{!!deleting || item.active}}">删除</button></view></view>
+  </view>
+</view>
+<view class="page-note">旧的页边，藏着新的发现。</view>

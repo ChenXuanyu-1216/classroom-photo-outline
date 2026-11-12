@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>微信登录 · 课堂大纲</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <script defer src="/js/auth.js?v=20261025-qr"></script>
+  <script defer src="/js/web-login.js?v=20261025-qr"></script>
+</head>
+<body>
+  <header><a href="/" class="brand">课堂大纲</a><a href="/">返回首页</a></header>
+  <main>
+    <section class="intro" aria-labelledby="login-title">
+      <p class="caption">继续你的课堂笔记</p>
+      <h1 id="login-title">在手机上收集，<br>在这里，慢慢整理。</h1>
+      <p>使用同一个微信账号登录，<br>照片、大纲和整理记录，两端都在。</p>
+      <div class="notebook" aria-hidden="true"><span>课堂笔记</span><i></i><i></i><i></i><small>从一张照片，到一份理解。</small></div>
+    </section>
+    <section class="login-paper" aria-labelledby="login-status">
+      <h2>微信扫码登录</h2>
+      <p class="muted">打开微信，扫描下方小程序码</p>
+      <div id="qr-panel" class="qr-panel" data-state="loading">
+        <div class="qr-frame"><img id="login-qr" alt="使用微信扫描此小程序码，确认登录课堂大纲" width="240" height="240" hidden><span class="qr-placeholder" aria-hidden="true">课堂大纲</span></div>
+        <div class="login-state" role="status" aria-live="polite"><h3 id="login-status">正在准备登录码</h3><p id="login-hint">请稍候…</p></div>
+        <p id="verification" class="verification" hidden></p>
+      </div>
+      <button id="refresh-qr" type="button" disabled>刷新二维码</button>
+      <p class="privacy">登录码 5 分钟内有效。<br>请仅确认你本人发起的网页登录。</p>
+    </section>
+  </main>
+  <footer>课堂上的线索，留给每一次回看。</footer>
+</body>
+</html>

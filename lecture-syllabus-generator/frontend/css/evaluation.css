@@ -1,0 +1,24 @@
+.evaluation-main { max-width: 1280px; margin: 0 auto; padding-bottom: 60px; }
+.evaluation-toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.evaluation-card { background: var(--book-paper, #fffdf8); border: 1px solid #d9d2c5; padding: 24px; margin: 20px 0; border-radius: 6px; min-width: 0; }
+.evaluation-card h2 { margin: 0 0 14px; font-size: 20px; }
+.evaluation-card p { line-height: 1.7; color: #514d45; white-space: pre-wrap; overflow-wrap: anywhere; }
+.evaluation-card label { display: flex; flex-direction: column; gap: 7px; margin: 12px 0; color: #302e29; font-size: 14px; }
+.evaluation-card input, .evaluation-card select, .evaluation-card textarea { width: 100%; box-sizing: border-box; background: #fffefb; border: 1px solid #bcb5a8; border-radius: 4px; padding: 10px; color: #24231f; font: inherit; }
+.evaluation-card textarea { resize: vertical; }
+.evaluation-card :focus-visible { outline: 2px solid #486b49; outline-offset: 3px; }
+.evaluation-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.evaluation-comparison .evaluation-card { margin: 0; }
+.evaluation-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 20px; }
+.evaluation-card pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.8 ui-monospace, Consolas, monospace; max-height: 560px; overflow: auto; padding: 14px; background: #f3f0e8; border: 1px solid #e3ded3; }
+.evaluation-card details { margin: 16px 0; }
+.evaluation-card summary { cursor: pointer; line-height: 1.7; font-weight: 600; }
+.evaluation-card fieldset { border: 1px solid #d9d2c5; padding: 12px 18px; margin: 18px 0; min-width: 0; }
+.evaluation-card fieldset:disabled { opacity: .55; }
+#source-photo { width: 100%; max-height: 480px; object-fit: contain; background: #e9e5dc; }
+#evaluation-notice { min-height: 26px; white-space: pre-wrap; overflow-wrap: anywhere; }
+#evaluation-notice[data-error="true"] { color: #9e2d27; }
+.evaluation-review { border-top: 1px solid #d9d2c5; padding-top: 18px; margin-top: 18px; }
+.evaluation-review h3 { font-size: 16px; margin: 0; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) { .evaluation-comparison { grid-template-columns: 1fr; } .evaluation-card { padding: 18px; } .evaluation-main { padding-left: 16px; padding-right: 16px; } }

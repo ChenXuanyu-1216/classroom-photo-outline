@@ -1,0 +1,1 @@
+{ "navigationBarTitleText": "课堂大纲", "usingComponents": { "studio-header": "/components/studio-header/studio-header", "history-panel": "/components/history-panel/history-panel" } }

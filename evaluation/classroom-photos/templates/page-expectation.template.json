@@ -1,0 +1,26 @@
+{
+  "protocol_version": "classroom-photo-v0.1",
+  "status": "template",
+  "sample_id": null,
+  "image_sha256": null,
+  "annotation_version": null,
+  "readability": null,
+  "expected_title": null,
+  "transcription_visible": null,
+  "regions": [],
+  "expected_points": [],
+  "formula_checks": [],
+  "code_checks": [],
+  "expected_handling": {
+    "needs_low_clarity_warning": null,
+    "has_extractable_content": null,
+    "reason": null
+  },
+  "annotation": {
+    "independent_annotator_ids": [],
+    "independent_draft_paths": [],
+    "adjudicator_id": null,
+    "adjudication_path": null,
+    "frozen_at": null
+  }
+}

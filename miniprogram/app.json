@@ -1,0 +1,8 @@
+{
+  "pages": ["pages/upload/upload", "pages/progress/progress", "pages/outline/outline", "pages/history/history", "pages/web-login/web-login"],
+  "window": { "navigationBarTitleText": "课堂大纲", "navigationBarBackgroundColor": "#f5f1e8", "navigationBarTextStyle": "black", "backgroundColor": "#f5f1e8" },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {},
+  "__usePrivacyCheck__": true
+}

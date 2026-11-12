@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>效果评价与证据 · 课堂大纲</title>
+  <link rel="stylesheet" href="/css/home.css?v=20261020-service-check">
+  <link rel="stylesheet" href="/css/outline.css">
+  <link rel="stylesheet" href="/css/book.css?v=20261025-paper">
+  <link rel="stylesheet" href="/css/evaluation.css">
+</head>
+<body id="knowledge-flow-home" class="kf-book-skin">
+  <header class="kf-header">
+    <div class="kf-brand">课堂大纲</div>
+    <nav class="kf-nav" aria-label="主导航"><a class="kf-nav-item" href="/">新建整理</a><a class="kf-nav-item" href="/history.html">整理记录</a></nav>
+  </header>
+  <main class="kf-main evaluation-main">
+    <div class="kf-heading"><h1>效果评价与证据</h1><p>对照原图核对这一轮结果，保留评分依据与错误案例。</p></div>
+    <p id="evaluation-notice" role="status" aria-live="polite"></p>
+    <div class="evaluation-toolbar">
+      <a id="back-outline" class="btn btn-secondary" href="#">返回大纲</a>
+      <a id="back-progress" class="btn btn-secondary" href="#">查看处理状态</a>
+      <button id="refresh-evidence" class="btn btn-secondary" type="button">刷新记录</button>
+      <button id="capture-evidence" class="btn btn-secondary" type="button">保留当前状态</button>
+      <button id="export-evidence" class="btn btn-primary" type="button" disabled>导出证据 JSON</button>
+      <button id="export-report" class="btn btn-secondary" type="button" disabled>导出评价报告</button>
+    </div>
+    <section class="evaluation-card" aria-labelledby="snapshot-heading">
+      <h2 id="snapshot-heading">本轮处理记录</h2>
+      <label for="snapshot-select">选择要评价的记录</label><select id="snapshot-select" disabled><option value="">正在读取…</option></select>
+      <p id="snapshot-summary"></p>
+      <details><summary>证据范围与限制</summary><p>新后台作业结束时自动保留快照。旧任务可手动保留当前状态，无法补回过去被覆盖的失败证据。原图保留在任务中，删除任务前请导出所需材料。</p><p>人工填写的计数用于描述本次样本，不代表整体 AI 准确率。自评、独立复核与裁决分别记录；模型自报置信度不作为人工评分。</p><pre id="snapshot-provenance"></pre></details>
+    </section>
+    <div id="evaluation-content" hidden>
+      <div class="evaluation-comparison">
+        <section class="evaluation-card" aria-labelledby="source-heading">
+          <h2 id="source-heading">来源照片与识别结果</h2>
+          <label for="source-page">来源页</label><select id="source-page"></select>
+          <p id="source-status" role="status"></p>
+          <img id="source-photo" alt="所选来源页的原始照片" hidden>
+          <details open><summary>本页识别与错误记录</summary><pre id="source-recognition"></pre></details>
+        </section>
+        <section class="evaluation-card" aria-labelledby="output-heading"><h2 id="output-heading">该轮保存的大纲</h2><p id="output-origin"></p><pre id="snapshot-outline"></pre></section>
+      </div>
+      <section class="evaluation-card" aria-labelledby="review-heading">
+        <h2 id="review-heading">记录人工评价</h2>
+        <p>每份评价绑定上方快照。保存为追加记录，修订时再提交一份并说明理由；不会覆盖旧评价。</p>
+        <details class="rubric"><summary>查看评价口径</summary>
+          <p>先对照原图写出期望知识单元，再逐项匹配输出。忠实度＝有图像证据支持的输出单元／全部输出单元；覆盖率＝正确恢复的不同期望单元／全部期望单元；来源正确率＝来源和正文均正确的条目／全部来源条目。分母为零显示“无比率”，缺少依据则保留空白。</p>
+          <p>模块结构与复习可用性按 0–4 评分：0 无有效内容；1 大部分需重写；2 需实质修改；3 少量修订可用；4 无需实质修改。两项均至少 3 且无关键错误才满足本协议的单模块口径，不等于整个 EXP05 通过。</p>
+          <p>公式条件、代码语义、图示关系或来源归属的关键错误须记录原文、期望和影响，不能用平均分抵消。正式验收另需冻结人工期望、独立复核与分歧裁决。</p>
+        </details>
+        <form id="review-form">
+          <div class="evaluation-fields">
+            <label>评审者代号<input name="reviewer" required maxlength="80" autocomplete="off"></label>
+            <label>评价方式<select name="review_kind"><option value="self">自评</option><option value="independent">独立复核</option><option value="adjudication">分歧裁决</option></select></label>
+            <label>评价对象<select name="scope_type" id="scope-type"><option value="page">页面</option><option value="module">单个模块</option><option value="task">整个任务</option></select></label>
+            <label id="scope-name-label">具体页码或任务范围<input id="scope-name" name="scope_name" required maxlength="180" placeholder="例如 P1 或整个任务"></label>
+            <label id="scope-module-label" hidden>本轮输出模块<select id="scope-module" name="module_id" disabled><option value="">请选择本轮输出中的模块</option></select></label>
+          </div>
+          <label>人工期望与依据<textarea name="expected" required maxlength="12000" rows="3" placeholder="填写原图可辨认内容、知识单元及所在位置；正式评价注明冻结期望版本。"></textarea></label>
+          <label>实际输出与对应证据<textarea name="observed" required maxlength="12000" rows="3" placeholder="引用实际输出片段，说明正确、遗漏、无依据补充或执行失败。"></textarea></label>
+          <fieldset><legend>内容计数（可留空；填写时六项完整填写）</legend><div class="evaluation-fields">
+            <label>期望单元总数<input name="expected_count" type="number" min="0" max="100000" step="1"></label>
+            <label>正确恢复的不同期望单元<input name="matched" type="number" min="0" max="100000" step="1"></label>
+            <label>输出事实单元总数<input name="output" type="number" min="0" max="100000" step="1"></label>
+            <label>有证据支持的输出单元<input name="supported" type="number" min="0" max="100000" step="1"></label>
+            <label>来源正确的条目<input name="source_correct" type="number" min="0" max="100000" step="1"></label>
+            <label>全部来源条目<input name="source_total" type="number" min="0" max="100000" step="1"></label>
+          </div></fieldset>
+          <fieldset id="module-scores" disabled><legend>单模块评分（仅选择单个模块时适用）</legend><div class="evaluation-fields">
+            <label>结构合理性<select name="structure"><option value="">未评分</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+            <label>复习可用性<select name="usability"><option value="">未评分</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+          </div></fieldset>
+          <details><summary>记录一项关键错误</summary><p>有多项错误时可追加评价。四项完整填写后随本次评价保存。</p>
+            <label>错误类别<select name="error_category"><option value="">无／未记录</option><option value="formula">公式或条件</option><option value="code">代码语义</option><option value="relation">关系或流程</option><option value="source">来源归属</option><option value="unsupported">无依据事实</option></select></label>
+            <label>正确内容与原图位置<textarea name="error_expected" rows="2" maxlength="4000"></textarea></label>
+            <label>实际错误片段<textarea name="error_actual" rows="2" maxlength="4000"></textarea></label>
+            <label>对复习的影响<textarea name="error_impact" rows="2" maxlength="2000"></textarea></label>
+          </details>
+          <details><summary>核心流程与用户验证（一）</summary><div id="core-flow-fields" class="evaluation-fields"></div>
+            <label>用户反馈<textarea name="user_feedback" rows="3" maxlength="12000" placeholder="记录真实试用者代号、操作卡点、能否辨认来源标签、修改量与耗时；未试用请留空。"></textarea></label>
+          </details>
+          <label>补充说明或修订理由<textarea name="notes" rows="2" maxlength="12000"></textarea></label>
+          <button class="btn btn-primary" id="save-review" type="submit" disabled>保存评价</button>
+        </form>
+      </section>
+      <section class="evaluation-card" aria-labelledby="saved-heading"><h2 id="saved-heading">已保存的评价</h2><p>按保存时间保留全部记录，不合并不同评审者的分数。</p><div id="saved-reviews"></div></section>
+    </div>
+  </main>
+  <script src="/js/auth.js"></script><script src="/js/evaluation-model.js"></script><script src="/js/evaluation.js"></script>
+</body>
+</html>

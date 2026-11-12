@@ -1,0 +1,27 @@
+.git
+.superpowers
+.codex
+.agents
+miniprogram
+docs
+**/.venv
+**/venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/tests
+**/.env
+**/.env.*
+**/data
+**/storage
+**/backups
+**/*.db
+**/*.db-*
+**/*.sqlite*
+**/*.log
+**/*.token
+**/*.pem
+**/*.key
+
+# Never send private source-reviewer data as Docker build context.
+.reviewer-data

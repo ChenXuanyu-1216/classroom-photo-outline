@@ -1,0 +1,1556 @@
+{
+  "format": 2,
+  "date": "2026-11-12",
+  "status": "source_preparation_complete_not_published",
+  "project_license": "MIT",
+  "copyright_holder": "ChenXuanyu-1216",
+  "derived_from_archive_sha256": "9b685322138fbf9078f9bfb14a9c1e28c8723045ac0578279db1de9adbbdc3ae",
+  "source_file_count": 308,
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 324,
+      "sha256": "f71766aa0154dbe3ec00ec7a37260d60bc3e1115434597de3181f0b787f2d583"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 49,
+      "sha256": "5cae120645dd6e90d97a4a3c69412aec4f36f3a42c982fef877c5b152c1b6018"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "bytes": 3669,
+      "sha256": "bd9e0e7df6584d3d7d59444111cfa24f760b9adc71141b2f14e4f0a6389bc715"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 821,
+      "sha256": "4c069836b884d162047a72b68d1bd866d7d6f9f51bf0eb6a4d87493cc0007c06"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 872,
+      "sha256": "74e2be7a0eca69995a49235fb2df1ea309ba452b19a142cc6b595073d5e7f26b"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 2027,
+      "sha256": "f300b30b49f0df2d27101edec81de9150f438c61eab6dab11046d71559e628d1"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 781,
+      "sha256": "17646765bb6736cf27826dab09192594b8fb654652c557998405011665625164"
+    },
+    {
+      "path": "docs/ai-core-flow.md",
+      "bytes": 6314,
+      "sha256": "469c11ae541b7dce4b1159198bc31442db4ef69683330b9aab4aa32f2beda787"
+    },
+    {
+      "path": "docs/branching.md",
+      "bytes": 2801,
+      "sha256": "fa5fa429a0bbbee84541fe885f76b7f1496c9136ec23a30545f8f1479c7e884d"
+    },
+    {
+      "path": "docs/classroom-photo-rubric.md",
+      "bytes": 12847,
+      "sha256": "4b0e0383b98b823c0c13de29186fb0da386527ef248e8cc404ca97d1bbc2fa42"
+    },
+    {
+      "path": "docs/deepseek-connection-test.md",
+      "bytes": 5232,
+      "sha256": "a9fc1ed431c220d4a49a7efc4fed76363414735ea62772a204bd5f11dec2e5de"
+    },
+    {
+      "path": "docs/deepseek-live-application.md",
+      "bytes": 4628,
+      "sha256": "509ed2853734a37e6b7c691bb99f7d7172ada03bf68ef3abeff7944c25dc7521"
+    },
+    {
+      "path": "docs/development.en.md",
+      "bytes": 14687,
+      "sha256": "41aedc4a44d77bd7f7f9babc3861126fadea718bf751a7e2cb009df62126a126"
+    },
+    {
+      "path": "docs/development.md",
+      "bytes": 13484,
+      "sha256": "e7367fd4128196c6f0f0ad35e082795e3f46c6fa59edf5eef735faa375951680"
+    },
+    {
+      "path": "docs/exp05-test-inputs.md",
+      "bytes": 1699,
+      "sha256": "6440effbf7682089c91e0916e942e4505b6391f68b15a37ccc2df36591c143de"
+    },
+    {
+      "path": "docs/exp05-web-evaluation.md",
+      "bytes": 5341,
+      "sha256": "61420c58e80e662877183f11d0cc4ae64d4e957a4a977bb61a07e0d8042da648"
+    },
+    {
+      "path": "docs/knowledge-expansion.md",
+      "bytes": 5048,
+      "sha256": "70869636abf693202375911be81807ada71339721bafc8e00b083e054aa4a089"
+    },
+    {
+      "path": "docs/local-quickstart.md",
+      "bytes": 6020,
+      "sha256": "dbe7afc51527601e1eb2b99e33ec50b7e9d44690331db3033a5232e930f93c3a"
+    },
+    {
+      "path": "docs/open-source-release.md",
+      "bytes": 2544,
+      "sha256": "d6d6573b879b16c44f9a94846e03c97a75792a75a98f5586235244057b82c4c9"
+    },
+    {
+      "path": "docs/quality-reliability-acceptance.md",
+      "bytes": 3990,
+      "sha256": "1d7ce79d0d9b8924a83cb1b8631e9a80c1011229b7574e384585232a79100eca"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 2261,
+      "sha256": "8cd8de5b5d3052ff8a4b1f90135a1764a987adf94bdf59542550fe61a4d2e2e2"
+    },
+    {
+      "path": "docs/source-reconciliation.md",
+      "bytes": 4640,
+      "sha256": "4f6760f265d03ba7773c08d5bfa35903f4cf944e99867634c20ea41a84fe59c5"
+    },
+    {
+      "path": "docs/ui-assets.md",
+      "bytes": 974,
+      "sha256": "741fc090a6779735eec1727ed6c5ff7ef7217d502e432c308d1188dda77adf10"
+    },
+    {
+      "path": "docs/v2-failure-handling.md",
+      "bytes": 10926,
+      "sha256": "f5c3072b88517da7270e89cf418745a6d1799521841dd7282e54a024e46eab61"
+    },
+    {
+      "path": "docs/verification/2026-11-11-source-reconciliation.md",
+      "bytes": 5748,
+      "sha256": "4c58ddd32b4ccab8783a18c52d826d7dca8d1e7c462ffc2e0d1cc00100b83708"
+    },
+    {
+      "path": "docs/verification/2026-11-12-public-source-preparation.md",
+      "bytes": 5836,
+      "sha256": "1cd9d9abba60da72ec29cf99c4d6cb1e50644e2f4a20da2936be7b283f7c7b05"
+    },
+    {
+      "path": "docs/wechat-auth.md",
+      "bytes": 5165,
+      "sha256": "84a6c3e9e55127020da634f80683f36d3fa564796e186b673a745bf54a7c04db"
+    },
+    {
+      "path": "docs/wechat-cloud-hosting.md",
+      "bytes": 12170,
+      "sha256": "0f2632062a0854d6489fe625af6f6024ffcda42de657c7e366070e0e3526dea1"
+    },
+    {
+      "path": "evaluation/classroom-photos/content-regressions.json",
+      "bytes": 2936,
+      "sha256": "506ab6738019719133a813944ef1e2c41caa9ace50259942ab21124be1a562e2"
+    },
+    {
+      "path": "evaluation/classroom-photos/README.md",
+      "bytes": 3976,
+      "sha256": "7a6c93101b0c20b74439bbe70b2521c5a6e91d5bb6d94067b2ea1f58925ff1f3"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/authorization-record.template.md",
+      "bytes": 1066,
+      "sha256": "cff62f9f08963a9ed944ebe48a5759a49bef97980404161b71b585b406a6f1dd"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/cloud-authorization.template.json",
+      "bytes": 107,
+      "sha256": "02589a06e8c63297d24c1be7ad21fa69019844f112a1e174124f40f31f47cf4f"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/dataset.template.json",
+      "bytes": 292,
+      "sha256": "4a834d4c5daef6728af347b1ed3b1c939566feb370aad1efe47113d80ee7a3bb"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/exp05-input-manifest.template.json",
+      "bytes": 2529,
+      "sha256": "5f0dada8b6266989695d5cf27486f74b4a9c15597c552d9247a3064104a30ea0"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/page-expectation.template.json",
+      "bytes": 618,
+      "sha256": "f5a71faab77cc93d2ebcb410b75f21a0f54a03b9c04cf8c18c048a99b44fc148"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/page-review.template.json",
+      "bytes": 1007,
+      "sha256": "4ac1f239c80a5f96bd6f043834a84fce78b005c8df4c6905328a432c6dffa869"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/run-review.template.json",
+      "bytes": 999,
+      "sha256": "a106a408c20ee3f43b31901f693bae8bff2c917f33aa80e7ffa59f891e68b871"
+    },
+    {
+      "path": "evaluation/classroom-photos/templates/v2-issue-record.template.json",
+      "bytes": 1420,
+      "sha256": "7ef5ac1acbcb196c88ba9788c1b6387c1ad14ba030719a616d03736d8dbc2ff2"
+    },
+    {
+      "path": "frontend-preview.html",
+      "bytes": 61625,
+      "sha256": "2cdad8570b911e61fff618cc9b8d41f1061d4bf64c7191cd104030c42b5973be"
+    },
+    {
+      "path": "lecture-syllabus-generator/.gitignore",
+      "bytes": 226,
+      "sha256": "a4bf04132156905804e2f1283dc6240f38f933ddb7da684749fdf5ed1020a5f4"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/.env.cloud.example",
+      "bytes": 870,
+      "sha256": "c957ac8c313d244920e074c5e019b665aa1428a4e0203f5f0a11b4e0339966ab"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/.env.example",
+      "bytes": 1253,
+      "sha256": "ba0bf937ee72b2c8a1244c6275b91220310a8a194d400e0d6a31ba8684384432"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/.env.reviewer.example",
+      "bytes": 401,
+      "sha256": "b819d5ff7d7255ddcdb9edcc613ccc8154ba0c5675b7f5df053514749e0bd439"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/body_limits.py",
+      "bytes": 1379,
+      "sha256": "5d5f461ce1e5d4d92806ab7a9c18f4e5fef42a7ba2d8c2780054fb0c71988e77"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/cloud_migration.py",
+      "bytes": 11374,
+      "sha256": "7a597d77baddd533e41080bec82f47f478c8d88610a901e0848995b7c6e3be21"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/config.py",
+      "bytes": 3879,
+      "sha256": "14a35fd0e1e587388a60d4eeb006b06eb69bff1b04983c369cc5c0a80c5822a8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/database.py",
+      "bytes": 875,
+      "sha256": "8fffa1996832ccc10a6fee0b48104d1319af6de7cc9205c47d2a279e1c6a0886"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/db.py",
+      "bytes": 4298,
+      "sha256": "f389039f801c44b0285fbb1564a8fdac8148906d586cb7d7967c32179e46ed16"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/errors.py",
+      "bytes": 4244,
+      "sha256": "9a8beb63919ebf743a7f8620a467a19ab6023828f035c6543359a2c9e61fb73b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/main.py",
+      "bytes": 2835,
+      "sha256": "1aee10a1745fc8e6f55ca80f91f3e84f1daaa2f2f3665d761da1c22c4c962b27"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/manage.py",
+      "bytes": 8046,
+      "sha256": "dab24710c940e24bce9418a0967894fd0af634a12ba3d0e4f7c4d6fb0f4bf680"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/models.py",
+      "bytes": 12196,
+      "sha256": "e17b0f4f99a98b29c04952db7750a8407590e3bc0dd549ccdc80b68603d21f5b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/prompts_loader.py",
+      "bytes": 700,
+      "sha256": "242450af0835009561ac5d077858f2f290278c6f869afe18c8a1c44c7393773d"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/auth.py",
+      "bytes": 2072,
+      "sha256": "2fb7db083a549ee8ddad0a71033c99d70c72554b151fd8b3354b4bd321f8c7a7"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/cloud_files.py",
+      "bytes": 2667,
+      "sha256": "708d3685b9450709086073689fbbaeb936c718a8967d2209fd6428276fd0bd40"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/evaluations.py",
+      "bytes": 2405,
+      "sha256": "667f54cecc8bfe9c344c04c87687c32541458badca34e910c63a608d7525bcec"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/export.py",
+      "bytes": 1569,
+      "sha256": "5da3458c71282dd67f639957c510bc132ede48b729471a59b6f0f8e85737c783"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/health.py",
+      "bytes": 673,
+      "sha256": "8092684bf8045becc6701e18d4b087518d3a6836dd7081df8f8732187b9fe217"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/meta.py",
+      "bytes": 1558,
+      "sha256": "0622fca13ce3aa751b1baa607cd839a6e8a6855e4058e927c87789ed81c8a0a7"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/outline.py",
+      "bytes": 3643,
+      "sha256": "1c2887b50043d0cd6cb74a0cf5f94ec68eb7f5b32cb40c7af9976dfa3df1d699"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/sources.py",
+      "bytes": 2600,
+      "sha256": "506b3ca4da42e6e2ba207fa3af4d77b7a4eb5018bb309773fea6d0c8d713bad0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/tasks.py",
+      "bytes": 5257,
+      "sha256": "e70d7a05f2b8065189fe6cf5b2975f9c7dc5d1f2a6b5dabde53f7f8b56d4bc0f"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/routers/web_login.py",
+      "bytes": 8037,
+      "sha256": "2c35dafabb4f5bfb5607e021cc3e339e88ef76be3b8687540e0f12e401fcbcf9"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/runtime.py",
+      "bytes": 1991,
+      "sha256": "309a40715d72badc325f60c9109fec394406f7558e54388ddaabff201a370835"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/runtime_probe.py",
+      "bytes": 1772,
+      "sha256": "0d7e929239bbb5ffda4f722dd206a3a27c42d9b0883063d209016530e62569a0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/schema_migrations.py",
+      "bytes": 8425,
+      "sha256": "9cb0231459a6400c8002c47b9b92db8d717249b967a33540414ad7502c3a773a"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/schemas.py",
+      "bytes": 1906,
+      "sha256": "942dc62f8c6afa97478484328d39e854481f209181d5a253b60ec91b19f5998d"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/auth_service.py",
+      "bytes": 2182,
+      "sha256": "98a21bdd20b358b982bae488d5426c35b5070f176f30d571aa0f74b024a93819"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/bucket_privacy.py",
+      "bytes": 1580,
+      "sha256": "6d4df85ad62ca41de492c1459a7bada76bd69ac15e679b725a46ca839516e449"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/cloud_cleanup.py",
+      "bytes": 3409,
+      "sha256": "30511dffb1fb2ca08c8ab43ccf6354638e5fa3811e14f231ec683c2bda36f79e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/cloud_files.py",
+      "bytes": 5340,
+      "sha256": "801b7923e890e554870add3a1b46a517e181ff4d83009610b2147e2c3a013b90"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/cloud_objects.py",
+      "bytes": 6709,
+      "sha256": "579ef357a9a7af1338f94d510cb09b544ab5a7f1d2a6341f69f05ddaeff85bdb"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/cloud_uploads.py",
+      "bytes": 8661,
+      "sha256": "13c117c2429f6408e4c761a3479aa8fa7994ddf84efc6749e66bb95565304e09"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/clusterer.py",
+      "bytes": 2166,
+      "sha256": "dcb4da6cef3de6847edd721b901d825944738a091d304f6883f480fa685445b8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/coordination.py",
+      "bytes": 4615,
+      "sha256": "43a23fba56749d5a6d9a9ca3d68c72d347770a4eae0b574488c62ac1a74ecf6f"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/database_budget.py",
+      "bytes": 4093,
+      "sha256": "948d05c09e1affe8ef6feaabf830778ec478b922d84f92d3d00ed71152873281"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/evaluation.py",
+      "bytes": 12794,
+      "sha256": "da0d5dd3e1fb4f3ca4a8f01c9d82151c8f5dbb2a000c32fda49176ddf95ae4b7"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/evaluation_grounding.py",
+      "bytes": 3235,
+      "sha256": "c332f5353aceb75904971565d38cb77df00e2db9fc21119daa4dfea2fc04cce0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/exporter.py",
+      "bytes": 2501,
+      "sha256": "70fb1613471f1579632c6bf5ae27e115d0119c5c9a64fe1e3e8189144180a051"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/extractor.py",
+      "bytes": 3597,
+      "sha256": "e248aace85e74b8640be281d896bd510c83c625c105719f3f4c8102bae780772"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/image_preprocessor.py",
+      "bytes": 6719,
+      "sha256": "fa1d60f075fc96bd79860dc0f615f412777c602422eee937c0339f4477adaac0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/knowledge_expander.py",
+      "bytes": 7388,
+      "sha256": "98c80f0737c808c3fa91d33225182fe25d07fce3ca5e0cfafe19ec1011b44a75"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_budget.py",
+      "bytes": 5330,
+      "sha256": "8896809a05991f11b98b7be1425ff90823ed74d7f8eebee9dbbc79c41bc4b480"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_clusterer.py",
+      "bytes": 6329,
+      "sha256": "3ee454595600134e34d62aa3dc795ac26bf5cc6c77ae270006df49070ce2840a"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_context.py",
+      "bytes": 2798,
+      "sha256": "e3a3095bc439d4271504d956938190cd11839151cb2dafb09057c8e4c0cf4e8a"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_network.py",
+      "bytes": 1955,
+      "sha256": "1339c1a866e23c981f8660d2d918b16eea7046a914821155987b779f456a6d10"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_output.py",
+      "bytes": 8861,
+      "sha256": "9b3585f994883ad59fabc6aec7b4073aa5f99fdf094ff203acc07adf279efbb3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/model_response_parser.py",
+      "bytes": 3403,
+      "sha256": "12544301fef104ff056abeb9d79648f98c1502cd604d1634ac6de26f583e8999"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/object_storage.py",
+      "bytes": 8968,
+      "sha256": "9f6eec4f68bf81cf5ab975d109899d6ef6b38e7d53a03e961a9f348f190492d1"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/outline_service.py",
+      "bytes": 2971,
+      "sha256": "8948f0059759c5e26e075c21b7a6b748ba0c4497b4a8aa0acf7ea3a9f85f375a"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/pipeline.py",
+      "bytes": 10091,
+      "sha256": "e4f7afa639906ad36a06cf661ffce53b2f42808a1f0027cc3abfe7e82953553e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/process_lock.py",
+      "bytes": 1730,
+      "sha256": "6a16a7e48b10515ce5a33607344a1fef9f3a2c4c939c5b6fdc25160bea2a34d6"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/recognizer.py",
+      "bytes": 17079,
+      "sha256": "df90d6a9d3d6550ba2b8e8e0a91ef80b79c1b82c9451c3f08f5ea929a6d7a753"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/task_deletion.py",
+      "bytes": 4617,
+      "sha256": "7873b3478a18194b48803402f883c8b1b2ffbfe464ee015c1e4fe0e098120f86"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/task_execution.py",
+      "bytes": 5156,
+      "sha256": "07c247d8006f79a3a3dedaebe5555ecb2eae0ecb67ebb848324064dbc5e83101"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/task_jobs.py",
+      "bytes": 9996,
+      "sha256": "98784383dce6b8adc0fad23caf770066f3f3eb2df6900fcddb6d776f2720d852"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/upload_service.py",
+      "bytes": 9831,
+      "sha256": "e1ba1a4591c34a5ad8812d71aab8db0ac8f9965ef34d9d1ab3ce80783d2040d8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/vue_form_grounding.py",
+      "bytes": 8268,
+      "sha256": "14b29a88b6b413fe0608f6d66ecb14a100827f61f045d69570afdf5a63197c40"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/wechat_login.py",
+      "bytes": 3456,
+      "sha256": "7bc5b8cd54209124c14fc9b28238b8dfabd9ebeb3a0d611f660efd31381daf87"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/wechat_qrcode.py",
+      "bytes": 3403,
+      "sha256": "3a18f841849cfaa72c665e2995f2cab1880f13b74bb335e4a039767e1baa47a8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/services/wechat_storage_credentials.py",
+      "bytes": 2928,
+      "sha256": "98bd3eb1cfaa81d09c6ae4785320fc2cd4fba10afa138a022fd972de6d1dafd0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/app/worker.py",
+      "bytes": 4235,
+      "sha256": "988056b2ba9145787e4983a8c0de11e8e47d74b9688f204cebcabc8385b0ec15"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/db/schema.sql",
+      "bytes": 6498,
+      "sha256": "c8fbf673efe16fce00d16f57f100cef50a769be426fc3317744d2412d025dcfc"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/prompts/cluster.yaml",
+      "bytes": 1172,
+      "sha256": "3017c9fe1f440dc4b4785f973e10b35714b8abb43eb2956f2bdca259f53ee6a5"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/prompts/expand.yaml",
+      "bytes": 5571,
+      "sha256": "35cc27cab67e6ce163e8867ef4a9385d1173eb3141e94b6985f07b542cc3eac9"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/prompts/extract.yaml",
+      "bytes": 331,
+      "sha256": "fae6546a21f359c36f4054aafaa1c3b99f6b61a9d747bccdf12571c3b6c34ac3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/prompts/recognize.yaml",
+      "bytes": 5383,
+      "sha256": "de19dc29ff0b360d54c5a40c0b55d7a54b666428fef429e120ebb22ff62da84b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/prompts/review_diagram.yaml",
+      "bytes": 5005,
+      "sha256": "f6c9c8c581d3cef508350cf8326a29b55ca00df29cc98586b412566cd47b5d53"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/requirements-dev.txt",
+      "bytes": 191,
+      "sha256": "7574dd21a54370e5700973d99abcb173b3f88c21a17d3d77835adaf9b10471b3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/requirements.txt",
+      "bytes": 309,
+      "sha256": "544f077638b02c5ae5064f6d1c70e68efcadcc02377faaded1fdd3edec6c0bd3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/reviewer.py",
+      "bytes": 6675,
+      "sha256": "00e400d11610d4def9b3f1c36adf4f8a01751986d16cb55cde4a9b3169f64fa5"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/run.py",
+      "bytes": 134,
+      "sha256": "24b8a94fddd34a17b03be1374569952728c45caef01d64f195e2542e5f234ce0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/conftest.py",
+      "bytes": 4544,
+      "sha256": "9533d7398ec116269c45e619574548b2d8e780f71c8be083a54f5ced9060265b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/fixtures/deepseek-synthetic-slide.png",
+      "bytes": 27366,
+      "sha256": "d641d89d60e6fe7ecedf4f8c92bd0726acfbe5e427fe8edc68f09b19c86d205e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/fixtures/synthetic-cloudrun-ca.pem",
+      "bytes": 1196,
+      "sha256": "4473679e4157aa575ec3bc4b25ed04e2858f11b69081559d207d0a258ce932b2"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/fixtures/synthetic-cloudrun-server-key.pem",
+      "bytes": 1704,
+      "sha256": "3d47f3a079a05f2f5b00fd18567f36e8773bed3b4357dbff87e7bc97ab1eafb9"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/integration/test_mysql_budget.py",
+      "bytes": 1554,
+      "sha256": "7a35ee51c150c8a154f135b68466f911c08f3035d3b7eedc8769266016a0f478"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/integration/test_mysql_cloud.py",
+      "bytes": 5610,
+      "sha256": "c2728d6d176b8efee7f487c56809a54ddb42f3e0da4fb5d4b3180e29c46dd30d"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/integration/test_mysql_coordination.py",
+      "bytes": 2914,
+      "sha256": "01b4b007850ac2df942b543cc4e6d6c2e93415d13a5163642d85c94932e8c78d"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/integration/test_mysql_migration.py",
+      "bytes": 1545,
+      "sha256": "3ef5fb0b9590f314817173812ef4564863cb72f3fe1390df57f8bf4167477622"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/integration/test_mysql_uploads.py",
+      "bytes": 3041,
+      "sha256": "6d8761d27ceb60e60a3c3f0331dddcc329c8f062e411ecb35b5b09b1c83deac7"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/storage_fakes.py",
+      "bytes": 1373,
+      "sha256": "a46e1f2d6f434465715ad0150b895d6ee61c2cce5fbb7a127ddf31da2fe396fb"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_acceptance_metrics.py",
+      "bytes": 10658,
+      "sha256": "3949443fe9d4c731a9693cbe7e9e657b7bb78346cfd84a74a1e7559cc9c26dde"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_acceptance_prompt_provenance.py",
+      "bytes": 4268,
+      "sha256": "0b893e1899cf789fd2bf1a89d5b99ff0b6f71dbb6dafc2c38f5b23fb27522df5"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_acceptance_reliability.py",
+      "bytes": 25154,
+      "sha256": "492bec4b4c44c22789fa9f3cf2502c72f9623459bcc53837ef74d4b9f86d3810"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_ai_core_flow.py",
+      "bytes": 18080,
+      "sha256": "b0d2b12883567469e6b61fd90e877d6d8e336b78489605a315022b243f1013aa"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_auth_ownership.py",
+      "bytes": 10207,
+      "sha256": "abeea68efd6c91c8578b46a73e479d6458bbd9a672977fae832778a80d7af78b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_bucket_privacy.py",
+      "bytes": 1332,
+      "sha256": "355a1c32f8967b616b491e3b318c6bd3ac7524f866907e8afa161dbde47988bd"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_budget_lock_recovery.py",
+      "bytes": 4823,
+      "sha256": "98b830fdd5fb77acfaa39f54bc19d90562bdb5b37dfde2c9ebd4842cd36f4989"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_budget_modes.py",
+      "bytes": 1927,
+      "sha256": "8710461431ca987f9c870559f8471751eda86304ee1ea4c01170eab9f74a99a9"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_budget.py",
+      "bytes": 5101,
+      "sha256": "a4dba55051f07637bc287fb031d5aea197600cd9b95237e7ffa777e3d660a900"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_coordination.py",
+      "bytes": 2281,
+      "sha256": "c4cdacbd161fb0a24f1bea2db2cb881e6aeab1ce354a87daedd16c83ac1b6a7b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_files.py",
+      "bytes": 6993,
+      "sha256": "bb59684f54401b616c665cf6db7690b32d031db0e0e4f2e840e20a1158ea586b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_migration.py",
+      "bytes": 5246,
+      "sha256": "0ad3b0e8fab7e314cdea907f0f73e9f9d65824df4cfa570897d1fcb12a1a2cb0"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_runtime.py",
+      "bytes": 3677,
+      "sha256": "17ddc23a9bda5b14693733ee9e4c50a16637f9c85bce84fd3eb589881f68878b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_schema.py",
+      "bytes": 4020,
+      "sha256": "b28684a87bc15ff338a27d0bc84e481cd8701db6dc8755a4a4f391ecb19cb94e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_security.py",
+      "bytes": 3078,
+      "sha256": "74239275f75f0322a5c06f13a5c61ce97185fc9f413ec5a3883715c71bb52db3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_cloud_uploads.py",
+      "bytes": 8956,
+      "sha256": "aea87547386a8481e029c1d08f077581a8f1dffcb9d6145a7d90063fc3bf923c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_clustering.py",
+      "bytes": 13033,
+      "sha256": "436ef3aec5f95f1b4ef9c98072d4455a20303ae6037d0768a1abb91131fd3369"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_content_regression_runner.py",
+      "bytes": 6121,
+      "sha256": "c49fac007abc27f385e6f020c923089d5eddcdf6f22059d77b0b2b3dd49aeaa1"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_content_regressions.py",
+      "bytes": 16089,
+      "sha256": "29061ff8dcb497af14ca667343b2e8dd8bb09b1428eec1d773644fb7b4dd88bc"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_content_repairs.py",
+      "bytes": 12382,
+      "sha256": "1cf4ef4d5101e6b100499ee2c3cf8137b29e9d97ad16c260ea98a869b7b3646c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_deepseek.py",
+      "bytes": 6671,
+      "sha256": "b943ea7d498d30b7314b1758c5fc8a6f3062d75dd394ec5cf8ec3542d3774fe8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_deepseek_probe.py",
+      "bytes": 4597,
+      "sha256": "683b3bb5ed73673f0b64293af2bb1b295171a884fed66d3f830c29e1305af0d8"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_diagram_content.py",
+      "bytes": 8201,
+      "sha256": "6cdfe3c447c33cbd4f03d3976ad5af25391c4e43740d0a412880fb2e4b5f0272"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_evaluation_module_binding.py",
+      "bytes": 3959,
+      "sha256": "f38ea926ab560f2a361b284e937093d923b014d816c911c32d0b6a623751a552"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_exp05_diagram_gaps.py",
+      "bytes": 6904,
+      "sha256": "000f26349709fe4692a1830d68b62b9ff52b92644e53f9a03df9aced8c70fec5"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_exp05_failure_records.py",
+      "bytes": 9747,
+      "sha256": "0d4cfdce4ead93f2578d14a85c014b4bb751c2123cac7f70622cd2a811cf6299"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_frontend_delivery.py",
+      "bytes": 538,
+      "sha256": "86ace57750d4b7533d56e0b7273aa21c0fb9cbe0e14180a51f7cf9c9c9291694"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_isolation_and_migration.py",
+      "bytes": 3057,
+      "sha256": "e42974f33a70110da7fc246fd13548dbddb87bf1db9e2af2e3345ca3aa6c775f"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_knowledge_expansion.py",
+      "bytes": 22976,
+      "sha256": "a665c504800913e1e8ed19cb7301437679ba18e7af6b808fbfec24e50b27b9f6"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_live_application.py",
+      "bytes": 8669,
+      "sha256": "fbb570e28e63878e7bd517807e3f9f8b2abce413fcf005f2f677120ed273f31b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_miniprogram_contract.py",
+      "bytes": 3591,
+      "sha256": "8fceb1986fb4abf03eae93432d88e30dacf430a34144204ba017dbe73828fb58"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_miniprogram_launcher.py",
+      "bytes": 2678,
+      "sha256": "8a81d1524959a80aa371ff952a799c7c6389380fd1912add02e381ac424618e3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_model_errors.py",
+      "bytes": 2370,
+      "sha256": "15d8af5d2dc2620294ff28bdad2d8b160925c803a5cf80f2554346d991c7960c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_model_network.py",
+      "bytes": 3517,
+      "sha256": "01c4565b52ce37b33ec5ba8ebab043a3de0dfc71047d756a31c847d48a26c3a9"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_model_response_errors.py",
+      "bytes": 5153,
+      "sha256": "a7db618fc4b6dd7de255aa84a3100278b269dae0c3effeed909212074346136c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_model_response_parser.py",
+      "bytes": 2939,
+      "sha256": "1b7f9a59d8f7777a31fba6a55e58f0304faae29445db74074c3478bb79295736"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_object_storage.py",
+      "bytes": 3925,
+      "sha256": "6505ae5bfecafa36e9349c3660daf9393c7ce854863c42770493892082966ea6"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_quality_acceptance.py",
+      "bytes": 13606,
+      "sha256": "7b43a1f9f1d80eee3f075c5ec7fafb33aba6d1268391b0461bcdd9b68cead7df"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_regressions.py",
+      "bytes": 13152,
+      "sha256": "9724e5947b6b4974241798091ea124ef9dfb1da9c6870130f97a95ccf068ab3b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_release_reconciliation.py",
+      "bytes": 8787,
+      "sha256": "34a103e71769382a4592d8d867adfc8276616c3037b2727bde98676c163c5f77"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_reliability_acceptance_runner.py",
+      "bytes": 18612,
+      "sha256": "0aff1c6d2e45ab080fdcddaa2868f334e6e408ab70743c889718ffb05cc465f3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_runtime_probe.py",
+      "bytes": 942,
+      "sha256": "6640b27a77597d246ae478e99d67837c391bd453096e5263017068f3a867577c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_server_startup.py",
+      "bytes": 1028,
+      "sha256": "8efc9dc549a65165925edbbf5380479f55818fc470815d0710a598a9c3fb0658"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_smoke.py",
+      "bytes": 5152,
+      "sha256": "2c32ec5d5c9fb5c543d504dccf9361ef536dab17699679816cd4c91e9939696e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_task_deletion.py",
+      "bytes": 5600,
+      "sha256": "f5d525bd01c50fb130d41f9cb0b7ed38759bfa5847bbba839441cf9cded81ea2"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_task_execution.py",
+      "bytes": 7350,
+      "sha256": "fc82ba872f70ac9952c29836d8d294c6a9c15f7230d27b4305352166f6681d8e"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_task_id_migration.py",
+      "bytes": 3010,
+      "sha256": "a4dc0359d1a51e0d738fb1ddbd89c391dbc4c738cd49a9dfe2d3cf26d7afca5a"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_task_jobs.py",
+      "bytes": 12010,
+      "sha256": "9ea3ee0ba27f12c51c4ff2cfa691aa7ed3eb903943adfbd78d7e8a6d2eb1b142"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_task_write_deletion.py",
+      "bytes": 8921,
+      "sha256": "24919bf3734ba09930ef20f21c1bc3ec10415097ee87593f7f9cd5dcfbffc9fb"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_upload_reliability.py",
+      "bytes": 17754,
+      "sha256": "36c8c7b28473c1bee06dc22d3c1cd77c1ffe8829a24e2d39ab0f6b2b9a5273f6"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_v2_model_reliability.py",
+      "bytes": 3889,
+      "sha256": "39b120f178f6ce78d069056776e7c13df53616d45829ee165713ae1342457a78"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_v2_page_errors.py",
+      "bytes": 2010,
+      "sha256": "bd9cafe36f984c0cf0bd3059608ac14aca8d6f4c83cbdc318b8394ed27547b9c"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_v2_verification.py",
+      "bytes": 2524,
+      "sha256": "47a1fb5803fe7e9450aca791818b75fe90ec1714da77206e6db93d98ceecb61b"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_web_login.py",
+      "bytes": 6576,
+      "sha256": "889dc2d81446253dbc4f4ec0b7ecce17d32a5388615b59645a4a4bfc9bb3de65"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_wechat_qrcode.py",
+      "bytes": 2791,
+      "sha256": "6d92256acf55c5dac830495d17a56aec4f32b683463b219f5602aaad226f17e6"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_wechat_storage_credentials.py",
+      "bytes": 8671,
+      "sha256": "626b7b9e063924fd2b22c76259967dedb746150cbd08c018b40ebdd8f32c0bc3"
+    },
+    {
+      "path": "lecture-syllabus-generator/backend/tests/test_wechat_tls.py",
+      "bytes": 3515,
+      "sha256": "d0fd6430d2a4f8e657376649ca294e81e2209cb50989072a9f4f86952b9d255b"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/app.css",
+      "bytes": 4736,
+      "sha256": "6bdc3d7efd1d52f68873be00eb6bb30c103b31b7c28d3984b793bfbcc4663286"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/assets/synthetic-slide.png",
+      "bytes": 27366,
+      "sha256": "d641d89d60e6fe7ecedf4f8c92bd0726acfbe5e427fe8edc68f09b19c86d205e"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/book.css",
+      "bytes": 18318,
+      "sha256": "107194b8d157ce2d7450844a311aae6c3980beee49e4441d448bf6330abbefa0"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/evaluation.css",
+      "bytes": 2374,
+      "sha256": "e51a0801292fdbe19251d7513e58cf343e2f9a0104e2ce0435753d0773edfa26"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/history.css",
+      "bytes": 7247,
+      "sha256": "ceb813a5dc071997aa501a2534f5a239c8c9227c37c7225e2a66ea2f9f25938d"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/home.css",
+      "bytes": 13847,
+      "sha256": "cb15e81b629f8815525f84385a7d5b36e04737b691e877bed07b6c0921f9c64e"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/login.css",
+      "bytes": 3445,
+      "sha256": "fe1d5c3397c9a8d755dc3681ad5a5036e4b40ecf8911ff015471a7d63db1ffe2"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/outline.css",
+      "bytes": 4041,
+      "sha256": "a77132e0eaf5de6610c0ec44b16d39630116079a4156b778f042f912d49efb25"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/css/progress.css",
+      "bytes": 1751,
+      "sha256": "d88652697620b356359eb85996b14616463bb9ed3c15464eacc6a9b3e05a0348"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/evaluation.html",
+      "bytes": 9303,
+      "sha256": "477a4bd9ef8582578a50dec3f192ca86908000c55833047d9055488325cc5968"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/history.html",
+      "bytes": 2999,
+      "sha256": "af9d1de01a9d1ad3219a35475cbef79773d32873eced04d9b5626de82ee2db17"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/index.html",
+      "bytes": 4369,
+      "sha256": "7e347210040b70a22fcc582e632a083ce89d38fc99f629b9d2dcaa98d5c988d3"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/api.js",
+      "bytes": 3966,
+      "sha256": "11e7713cb2de19ce19d327f8ee7e77a22f9d4b6942ca0ec2848798c7f88d2060"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/auth.js",
+      "bytes": 3867,
+      "sha256": "25dea153f227434d2a465bf157f84b3aef28d0180db012dc186266e00d983912"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/book-source-map.js",
+      "bytes": 733,
+      "sha256": "47e35e8cd547ae024871e0ee66dd166b406f021df365ddd57a56b7b282d0039c"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/book-ui.js",
+      "bytes": 14754,
+      "sha256": "742598695c82262a5841331cd699e53efa4a3550283b614875e0404bf8f99060"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/evaluation-model.js",
+      "bytes": 6347,
+      "sha256": "5ab0a66f70545a7d4b0e31d6c6e781358809287956f62fa794bf1ad7af3d3b68"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/evaluation.js",
+      "bytes": 14557,
+      "sha256": "69b2158191724bbe178b746a329f7d2754bcb6b7b36b77121a84814e46581bc7"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/history.js",
+      "bytes": 13034,
+      "sha256": "bc54c465fd2a71fbf2f8e516488d0d8055e6900a01f4285d118777019e85f1d6"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/knowledge-flow.js",
+      "bytes": 3097,
+      "sha256": "7de25fd412d2e3503e134d0878eae01ac272e5f0da34323e2745180ec5626b8c"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/outline.js",
+      "bytes": 7112,
+      "sha256": "ff7b006622bd4ba022cf50e7ec56cbe2d55019800d593a31c13e84e43f88dc68"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/page-transition.js",
+      "bytes": 3316,
+      "sha256": "9d1ab117d739b44a1da66cd5743dced0fff48dead560015c6ab3b8ec3349ee37"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/progress.js",
+      "bytes": 12132,
+      "sha256": "34862e18cff9baa15017fcebe0a81f347014c39c6de00d924279af700fb163fd"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/upload.js",
+      "bytes": 10725,
+      "sha256": "ecaddfad65475390de50828425029e3016a36523b39c5c223398dbfbbb0afba0"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/web-login.js",
+      "bytes": 5861,
+      "sha256": "71539b43bd7b35a3b3310da04cd1b462d324dbb1466b1108921ba8d6a31ac3c8"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/js/workspace.js",
+      "bytes": 9019,
+      "sha256": "912ba353e6c86d0a9509197f92004d38b9d81dbc536cfe90b0c1c3328475f584"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/login.html",
+      "bytes": 1958,
+      "sha256": "cbfa454bf9b222247940c852944ae7557f219fbd2bbe3c0315f89d59e518fbb9"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/outline.html",
+      "bytes": 4451,
+      "sha256": "ae3879d8ee2614d74593cdf2720000996118be697325703d95d135233026f41b"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/progress.html",
+      "bytes": 4686,
+      "sha256": "7b781181a2ddf0459a3b97cad102d43473de786d7fc7757b5aa9e0c9b58092ee"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/auth.test.cjs",
+      "bytes": 2963,
+      "sha256": "270f580ad18dc54b388776793bf1f0e7755173afb604f48b865d005484bda9c1"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/book-source-map.test.cjs",
+      "bytes": 1570,
+      "sha256": "24752cb765aaa9775f1add701abf5d6823f5ee464fffa9e7d363abbdbe6f3d67"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/evaluation-page.test.cjs",
+      "bytes": 5541,
+      "sha256": "4ed64a28dc98ce3e7a465c20d251084a1efdf3c9df07e86495671e3a8c2f2596"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/evaluation.test.cjs",
+      "bytes": 2768,
+      "sha256": "4c4d6536e70c1678ed78e95b6eb8a2888934380945af7dc0d51003f796f5ed5d"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/helpers/dom.cjs",
+      "bytes": 3862,
+      "sha256": "071943a02e47637bc20fb8dfd9973a9bdabc45b7a172484cf9e1f7aa494d900d"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/history.test.cjs",
+      "bytes": 16802,
+      "sha256": "66664fcceb9645c196c088f1f052470e05be92823b7393ae64b1b38547731494"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/jobs.test.cjs",
+      "bytes": 2429,
+      "sha256": "59622dee9bff5074ccfe167efe59684dd762c6caf693e859ba09ebe46b89a171"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/knowledge-flow.test.cjs",
+      "bytes": 4855,
+      "sha256": "fc0cfaf54a2212507e7e0cfded1319b3364586fbabba56c9c5494dc3d16cdc48"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/model-status.test.cjs",
+      "bytes": 5891,
+      "sha256": "06e39a4d09ba87202a75342253c36bb685e7f85c6bdca146b04ae351ac1c830f"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/outline.test.cjs",
+      "bytes": 8835,
+      "sha256": "1d1a89b395be4ebe93a55c183edd64b30d31db4f17b03532c6a55fc7d8813211"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/page-transition.test.cjs",
+      "bytes": 5122,
+      "sha256": "61abd5f7eba7ba4a28a3ddc1ca2432bed6ef8dd659cf172fc0d1ab67fad2678c"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/progress.test.cjs",
+      "bytes": 14701,
+      "sha256": "3599af701fdcf75af1f2f17868c1a0b36ea4d04e537c73e07ac84c1520e8fabb"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/upload.test.cjs",
+      "bytes": 4204,
+      "sha256": "c1ee4c46bded339723fd95a2c8b41b3b082cf6856dc02ba1608a248c794a2d92"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/web-login.test.cjs",
+      "bytes": 2665,
+      "sha256": "11c022840501fd5f8e03924ca017ee2570608acc78f4b53894705a5eb1c75e83"
+    },
+    {
+      "path": "lecture-syllabus-generator/frontend/tests/workspace.test.cjs",
+      "bytes": 6588,
+      "sha256": "0947e612aebba5dd354cbc970641705e606d56d89ece728afb78873e9de42840"
+    },
+    {
+      "path": "lecture-syllabus-generator/README.md",
+      "bytes": 794,
+      "sha256": "3ed832390194e1b6c9fce49f91165c9f418c2450210947af6077680ccb098350"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/acceptance_metrics.py",
+      "bytes": 9908,
+      "sha256": "45ef1e0e50a935430f8001c8fbce5c8224588697987bb97a19092d0752130a05"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/build_frontend_preview.py",
+      "bytes": 4779,
+      "sha256": "8cff7d980a1a478228dab4651c294458131dd70b2546c7f4e7b37c2da12d6372"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/check_deepseek.py",
+      "bytes": 6809,
+      "sha256": "f92853b99ba47be8473dd03e54d1028361d9b9ec2151e4dac680933c9a6c8660"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/check_knowledge_expansion.py",
+      "bytes": 8215,
+      "sha256": "e275f36ab3ae8360c2fb8e322b7075944b0535396b05f755d19a123db97168a8"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/content_regressions.py",
+      "bytes": 12487,
+      "sha256": "4ea96274ffd90edc295b90d7cfc7256d4725d7212ad2dc317fe0ddaec7d63aa7"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/run_content_regressions.py",
+      "bytes": 9393,
+      "sha256": "46dd3fa12939b53d6cd96bb073b1567bcddc89be05e9c5ebeed3501244c1cc24"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/run_quality_acceptance.py",
+      "bytes": 26315,
+      "sha256": "def5ab7a4341cdadeb08f694bc64cacb1132c7a623e02054099332e8e7564542"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/run_reliability_acceptance.py",
+      "bytes": 13844,
+      "sha256": "075a6d03180240b00ad1276599fd80f7ebb4a1b5077845e1bcf48404ccbed626"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/start_backend.bat",
+      "bytes": 1071,
+      "sha256": "8f1460f9bc8ce58181620d75c4715d3bc7868850dab6054628d48a91e3131525"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/start_backend.sh",
+      "bytes": 57,
+      "sha256": "be69d090670437acec50ff5dca8ab9980c3da17b47042ad7c5bf53a4e93f9708"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/start_miniprogram.ps1",
+      "bytes": 5727,
+      "sha256": "86e086658d2c9320fa99c002ded3b934b36048edf1f49e0a013c04d92eba1f58"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/verify_exp03.ps1",
+      "bytes": 948,
+      "sha256": "e8f5cefa78234a22b03129738e292b13d11656d6114ec04afed79e3684ed5b4b"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/verify_v1.py",
+      "bytes": 12236,
+      "sha256": "ddfadb867b6c6bd45c71575a6931eda91979cfa4051d52fd0da46a95de091065"
+    },
+    {
+      "path": "lecture-syllabus-generator/scripts/verify_v2.py",
+      "bytes": 10778,
+      "sha256": "868f3ca97da7587f855b7ce6967a6405048b35e68c024f8e30089ece19f58abb"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1072,
+      "sha256": "b7c67089c554598ab86b4979da9abc00df7a2f29dad0dbcfabeddebdc5fd46c3"
+    },
+    {
+      "path": "miniprogram/app.js",
+      "bytes": 9,
+      "sha256": "1ab645c73bcea61604f9cc4805a752ab9ba8fb66813d8c57cad34328c0ce4109"
+    },
+    {
+      "path": "miniprogram/app.json",
+      "bytes": 422,
+      "sha256": "d2fcc0eaa1bb0060252d37a7b6f1f91f9a122d6aa1df82ba109e6b8a262a07a5"
+    },
+    {
+      "path": "miniprogram/app.wxss",
+      "bytes": 2778,
+      "sha256": "1d97aad3aee593b68ebef77148892bd514db1e7d5044c0cc2324719151cb7d53"
+    },
+    {
+      "path": "miniprogram/assets/synthetic-slide.png",
+      "bytes": 27366,
+      "sha256": "d641d89d60e6fe7ecedf4f8c92bd0726acfbe5e427fe8edc68f09b19c86d205e"
+    },
+    {
+      "path": "miniprogram/components/history-panel/history-panel.js",
+      "bytes": 4148,
+      "sha256": "2108aa4e605707db8986c284784c4519df93cb2e9c917017e7e179840cf37b5a"
+    },
+    {
+      "path": "miniprogram/components/history-panel/history-panel.json",
+      "bytes": 22,
+      "sha256": "e7b657f5a4b032a68e9e084639b3a5564ce552896d269c3f8c4463bf7a7fa3b5"
+    },
+    {
+      "path": "miniprogram/components/history-panel/history-panel.wxml",
+      "bytes": 1542,
+      "sha256": "b7e9efbba70d745060943e3e195759cc15de087e5f1008a316b9f01f7858c3f8"
+    },
+    {
+      "path": "miniprogram/components/history-panel/history-panel.wxss",
+      "bytes": 207,
+      "sha256": "69a86f67bcd84ec6a9087747d612f32ccc1a052bb7251651de4fb5d8fce8ea3a"
+    },
+    {
+      "path": "miniprogram/components/studio-header/studio-header.js",
+      "bytes": 3180,
+      "sha256": "9ecc0fc9ef04298553e119ae248f0bd39641721942a906f51fe3eb7f7c08775c"
+    },
+    {
+      "path": "miniprogram/components/studio-header/studio-header.json",
+      "bytes": 22,
+      "sha256": "e7b657f5a4b032a68e9e084639b3a5564ce552896d269c3f8c4463bf7a7fa3b5"
+    },
+    {
+      "path": "miniprogram/components/studio-header/studio-header.wxml",
+      "bytes": 1340,
+      "sha256": "117323e8059f6bc75ac4b7f9144ed1b3c1c1ba45970bb1209bf26e54b9f5dcc0"
+    },
+    {
+      "path": "miniprogram/components/studio-header/studio-header.wxss",
+      "bytes": 2966,
+      "sha256": "063dedbdd5a72871c99b38bcd7bb312b9f39427b73cdb88d175c06c2f4308fab"
+    },
+    {
+      "path": "miniprogram/config.js",
+      "bytes": 430,
+      "sha256": "e7a07f168f8766cc260519b4b87caa249b78353837c7eb4b4e36a77ff339ca38"
+    },
+    {
+      "path": "miniprogram/pages/history/history.js",
+      "bytes": 2338,
+      "sha256": "7c92b266b726ccf8f34f6121eaa710399081c77012a52cd0d5ab0bf06152c724"
+    },
+    {
+      "path": "miniprogram/pages/history/history.json",
+      "bytes": 190,
+      "sha256": "6c9f0c91878bda2fabba4d97cc1b5b9bbb371b9486886778936242eef6ebfff6"
+    },
+    {
+      "path": "miniprogram/pages/history/history.wxml",
+      "bytes": 1625,
+      "sha256": "e67c939cd1db0a7266b633190df70b2e9c79b905a2a3373450f18f0a238e4a16"
+    },
+    {
+      "path": "miniprogram/pages/history/history.wxss",
+      "bytes": 200,
+      "sha256": "ce8a28b38a8c1c072f2370e6e68cfb54aa7b5a21a498d0dc9759cb7ab36d0a73"
+    },
+    {
+      "path": "miniprogram/pages/outline/outline.js",
+      "bytes": 5990,
+      "sha256": "067cf9d9b89caaee1691cc626100466e55fa48b01165f532377e09a4746ce498"
+    },
+    {
+      "path": "miniprogram/pages/outline/outline.json",
+      "bytes": 160,
+      "sha256": "cf9475f78f93eb3cfa425f5a251e9bf49a324207675346d3281645dddaaf080b"
+    },
+    {
+      "path": "miniprogram/pages/outline/outline.wxml",
+      "bytes": 3625,
+      "sha256": "8bdca48f787f7ca971c69504feacaecf8a0a1687282efd0e90ab7537f59dafff"
+    },
+    {
+      "path": "miniprogram/pages/outline/outline.wxss",
+      "bytes": 2082,
+      "sha256": "a32be5238e952a4e486b0d6cd92b7d7fdd8617a61ebcfeac84eaaf3cba134214"
+    },
+    {
+      "path": "miniprogram/pages/progress/progress.js",
+      "bytes": 3443,
+      "sha256": "8fa9093b0538746ebc9220244a984a43b9a6d6bca58c82970df806f2a28490ce"
+    },
+    {
+      "path": "miniprogram/pages/progress/progress.json",
+      "bytes": 128,
+      "sha256": "8b463ad26508000dd3e1dcf76616ab737cb7bd4450f963c3730afe819f51be49"
+    },
+    {
+      "path": "miniprogram/pages/progress/progress.wxml",
+      "bytes": 2106,
+      "sha256": "5c34e2a2c249fff5da6823b0f157011a9fd6e67ad96d065a06ec2f47fd1bc29e"
+    },
+    {
+      "path": "miniprogram/pages/progress/progress.wxss",
+      "bytes": 163,
+      "sha256": "28c4f02a2612395e0435d764ec29132256aec431d6b65fa77e295090c3ecf79c"
+    },
+    {
+      "path": "miniprogram/pages/upload/upload.js",
+      "bytes": 8128,
+      "sha256": "67bb7e5b1c4167a71bb36c00b4e77c2a03854c013d50f877c5b636c59c920ee5"
+    },
+    {
+      "path": "miniprogram/pages/upload/upload.json",
+      "bytes": 188,
+      "sha256": "2eb0449caad4e97c028e6937fae598bf22d23cc61f78e6fa9c981730c7b4f4c5"
+    },
+    {
+      "path": "miniprogram/pages/upload/upload.wxml",
+      "bytes": 5479,
+      "sha256": "da81348b09b2f4a051504887b980c0b78192a829f99877db034481b2994ba3bd"
+    },
+    {
+      "path": "miniprogram/pages/upload/upload.wxss",
+      "bytes": 3462,
+      "sha256": "5e640f47d8373903f7b32c7c991f7b599236925bb22bded10cce609cd3995445"
+    },
+    {
+      "path": "miniprogram/pages/web-login/web-login.js",
+      "bytes": 1799,
+      "sha256": "a66f354e047d7da0b9fa19c03bc50bdc4c5921214f1db37b3405b14ad3f6bbe8"
+    },
+    {
+      "path": "miniprogram/pages/web-login/web-login.json",
+      "bytes": 48,
+      "sha256": "957880c127168c6e9f87ac89037305392ef46f5c722922c33ed90e798ed44fef"
+    },
+    {
+      "path": "miniprogram/pages/web-login/web-login.wxml",
+      "bytes": 1681,
+      "sha256": "165a32c9d64e6564fb74249a4f853977030a3f1f7fc87d9ef7fdb13748eb9b82"
+    },
+    {
+      "path": "miniprogram/pages/web-login/web-login.wxss",
+      "bytes": 344,
+      "sha256": "80eac0e8553452f06c9fa8fcaa3c096d1e2b8e2a1d1130640e3e6f8d263a812a"
+    },
+    {
+      "path": "miniprogram/project.config.json",
+      "bytes": 997,
+      "sha256": "841003a26b306a6c3581ef80d1d05ba576b93e2f1859041e553b93a43721a38e"
+    },
+    {
+      "path": "miniprogram/README.md",
+      "bytes": 11107,
+      "sha256": "12335f83ac29f4e5cd8afcd6021ebcf312f5d2da7c8a9a002fc928f270a91996"
+    },
+    {
+      "path": "miniprogram/tests/client.test.cjs",
+      "bytes": 5853,
+      "sha256": "78c3290aae83be3d2f2ff08a07c185a66368ae346d67f7e3102341794c98fc36"
+    },
+    {
+      "path": "miniprogram/tests/cloud-files.test.cjs",
+      "bytes": 6209,
+      "sha256": "edf049425d1836398484560846c9eeeb3e18f903676fbe45beb02b9efbe8036b"
+    },
+    {
+      "path": "miniprogram/tests/cloud-transport.test.cjs",
+      "bytes": 7288,
+      "sha256": "14d11a88c5ba8c1dd46baeb89ad0c067aa53a924e9f92c1834899d7327ff7c71"
+    },
+    {
+      "path": "miniprogram/tests/header.test.cjs",
+      "bytes": 1721,
+      "sha256": "6640b8d68d1aec1f3dc425d9d083b6730754ad4b21bdba85b8023a5e64fe05db"
+    },
+    {
+      "path": "miniprogram/tests/history-panel.test.cjs",
+      "bytes": 3031,
+      "sha256": "cd0d19541b3761aff26c6b25cc6fb11f112766b3713375bbad8bd4eeec340b13"
+    },
+    {
+      "path": "miniprogram/tests/navigation.test.cjs",
+      "bytes": 899,
+      "sha256": "3185c8a09a71d1ea1d283752bf5376ae4407180bbc3b138bd8a0090278383a1a"
+    },
+    {
+      "path": "miniprogram/tests/outline-format.test.cjs",
+      "bytes": 1372,
+      "sha256": "6233baffb27837560428c0a028147b011f286aab0df52f8506db3238f017dc59"
+    },
+    {
+      "path": "miniprogram/tests/pages.test.cjs",
+      "bytes": 9837,
+      "sha256": "8a851fdae50c6e947bafafe9bae511b786fd0e240d57a2a4bc4c566940acf494"
+    },
+    {
+      "path": "miniprogram/tests/photo-errors.test.cjs",
+      "bytes": 2934,
+      "sha256": "1b648e220937bf9dc63b2c6699751ba929465328db19f18e80ab011d428bee2a"
+    },
+    {
+      "path": "miniprogram/tests/scene.test.cjs",
+      "bytes": 1335,
+      "sha256": "6d128d40cafdae244607bb68d809f9f34c76cbcf2ae509f9010146def8dc7afb"
+    },
+    {
+      "path": "miniprogram/tests/session.test.cjs",
+      "bytes": 3778,
+      "sha256": "add8e8a4a8f9dc2de7ee32f0e0a46ad0119d416f6f95c52b3c88f5df66d5d083"
+    },
+    {
+      "path": "miniprogram/tests/templates.test.cjs",
+      "bytes": 1351,
+      "sha256": "d4c32207d6bb5c99f520b3a8e24fa699de7dacb052326af643f54fb5512f48e4"
+    },
+    {
+      "path": "miniprogram/tests/web-login.test.cjs",
+      "bytes": 1720,
+      "sha256": "8e3a39a8788736b4fa4b71e9362d4461f4a4e3d4e8a6e7f394cf120fa3335b14"
+    },
+    {
+      "path": "miniprogram/utils/api.js",
+      "bytes": 5769,
+      "sha256": "dd5972165a6aceb155c66ec2413d87e52d397a01db8c44569017ff89684f6612"
+    },
+    {
+      "path": "miniprogram/utils/cloud-files.js",
+      "bytes": 8345,
+      "sha256": "27e587e96820ac17a4bdde2e017efa6c6aa920f6b3785dcd314a9a5528065160"
+    },
+    {
+      "path": "miniprogram/utils/knowledge-scene.js",
+      "bytes": 2393,
+      "sha256": "993c56add67b0905da209243187753342546622ce4088288f20e136a3cae8810"
+    },
+    {
+      "path": "miniprogram/utils/multipart.js",
+      "bytes": 1529,
+      "sha256": "978d86db210c3fdc6fad9a04b0f9cfc374ff471a36f390f06a0b932449e08dd3"
+    },
+    {
+      "path": "miniprogram/utils/navigation.js",
+      "bytes": 629,
+      "sha256": "98b6f86a2f8a806c4dd1169c99570b7cf25306a0a9208370373efa1cddd1ce9a"
+    },
+    {
+      "path": "miniprogram/utils/network-error.js",
+      "bytes": 1628,
+      "sha256": "11942b587d8173de35166b23f92b7c18ea0f2492d7277586f4be97c8a8e8c88a"
+    },
+    {
+      "path": "miniprogram/utils/outline-format.js",
+      "bytes": 1434,
+      "sha256": "a3f61146707cd2e941e200484239943bf7e3e3e9c966157a0865296056e70d17"
+    },
+    {
+      "path": "miniprogram/utils/photo-picker.js",
+      "bytes": 3338,
+      "sha256": "7c6869d0161cc3b1685bf6e1571dee7c8e8161dc2e8c78decdb1a52ece7b6491"
+    },
+    {
+      "path": "miniprogram/utils/session.js",
+      "bytes": 2818,
+      "sha256": "ab64c8e25ea4ece18b43f2e94fe5ed10fcc98c930ba549cba7044c4d00db498b"
+    },
+    {
+      "path": "miniprogram/utils/settings.js",
+      "bytes": 1252,
+      "sha256": "42bf4ba515a70ab265f8b3284517c43e4fa10e50e4a02f74b1dbcb0b11017664"
+    },
+    {
+      "path": "miniprogram/utils/transport.js",
+      "bytes": 1458,
+      "sha256": "f49ea7e3b1454554c1c546ae397d7a90bfac35839452f19606ad35b7da7266d0"
+    },
+    {
+      "path": "miniprogram/utils/ui.js",
+      "bytes": 561,
+      "sha256": "d2ecbc7fbb52cbf468f3620ddca8b845a9b90cdf97b724dfc0622c2502df8f83"
+    },
+    {
+      "path": "miniprogram/utils/workflow.js",
+      "bytes": 1551,
+      "sha256": "556f2dface73673a7227c6e19ec4bd6617dae6cb0f3391f8a0dcd5799f19f076"
+    },
+    {
+      "path": "README.en.md",
+      "bytes": 4768,
+      "sha256": "70d91e4c3aff856262a8491a281c3180c9bf376c9b2a5d939f4258f62554b781"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4394,
+      "sha256": "8f0b9bb9fe9d61621a43b61a1117102e23e65567d0be88e77e46174efc559300"
+    },
+    {
+      "path": "RELEASE_STATUS.md",
+      "bytes": 803,
+      "sha256": "c0d783d0c4f1e2d5b59eafd7f4723326bb2e63623b03bad3933f4b71b7ef8db2"
+    },
+    {
+      "path": "scripts/build_reviewer_bundle.py",
+      "bytes": 11300,
+      "sha256": "03a73c4e59c017c8394a32403716190b81fb8c18db4998406aac03e92834ea99"
+    },
+    {
+      "path": "scripts/tests/test_reviewer_bundle.py",
+      "bytes": 6216,
+      "sha256": "c9d0ad4709c8820144f9e5c0525ad84738f2265437ad8f3164ce48589bd20933"
+    },
+    {
+      "path": "scripts/tests/test_reviewer_runtime.py",
+      "bytes": 6863,
+      "sha256": "7a95d526f2f07bac4aed72166670df7276b1b1cacd8631d676303c9e55b65ad7"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1774,
+      "sha256": "76ddb4c221409a69c4a77a2f1f93a2fd9dd5d96d08fc92f3efa9f9360ae7562c"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3505,
+      "sha256": "9ec250da04d81956800e5dd356d6a9f1a76aea1fcdd42a883f1becce287a804f"
+    }
+  ],
+  "extra_files": [
+    "MANIFEST.json"
+  ],
+  "git_history_included": false,
+  "publication_cleared": false
+}
