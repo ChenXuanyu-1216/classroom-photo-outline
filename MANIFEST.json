@@ -64,13 +64,13 @@
     },
     {
       "path": "README.en.md",
-      "bytes": 10654,
-      "sha256": "9b0f1bdc45d0cb497a24bfbb07ee66caa3f3e97e2c02dddde7507de64b165275"
+      "bytes": 12716,
+      "sha256": "90525cf8f8cea6bf863c18fc79d341ad1f36972592b184ee18ddfae301e09dc6"
     },
     {
       "path": "README.md",
-      "bytes": 9914,
-      "sha256": "23a080cb8953ffca1553dbe078e75a9d79d07f99fb62472c0cc16c8d6e64c937"
+      "bytes": 11882,
+      "sha256": "0fc285b765b8c4bd20e8c47f59d4c0fc365a9245d67f7da89655426143b05a8c"
     },
     {
       "path": "RELEASE_STATUS.en.md",

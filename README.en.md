@@ -15,7 +15,7 @@
 <p align="center">
   <a href="#what-it-does">Introduction</a> ·
   <a href="#run-it-locally">Local setup</a> ·
-  <a href="#what-you-can-change">Configuration</a> ·
+  <a href="#adapt-it-to-your-course">Course setup</a> ·
   <a href="#documentation">Documentation</a> ·
   <a href="https://github.com/ChenXuanyu-1216/classroom-photo-outline/releases/tag/v0.1.0">Download v0.1.0</a>
 </p>
@@ -92,7 +92,28 @@ Upload the synthetic example, check the result, edit and save a paragraph, then 
 
 The local reviewer uses the official DeepSeek configuration and has no mock fallback. Normal browser and WeChat login use a different entry point, and mock model mode retains authentication. See the [complete quickstart](docs/local-quickstart.md) and [WeChat authentication guide](docs/wechat-auth.md).
 
-## What you can change
+## Adapt it to your course
+
+Course adaptation starts with prompts and evaluation examples. Describe the course, the kinds of slides you use and the content that must survive recognition. For formula-heavy material, check symbols and conditions; for code-heavy material, check capitalization and indentation.
+
+Start with the page-recognition requirements in `recognize.yaml`, then inspect how `cluster.yaml` groups the results. Use `expand.yaml` to adjust the scope of added explanations while retaining source references and AI-generated markers. These files are under `lecture-syllabus-generator/backend/prompts/`.
+
+If you use a coding tool, fill in a request like this.
+
+```text
+Read README.en.md, docs/ai-core-flow.md and docs/classroom-photo-rubric.md first.
+I want to use this project for [course name].
+The slides usually contain [describe formulas, code, charts or other material].
+The outline must preserve [specific terminology, symbols, sources or other requirements].
+Inspect the relevant prompts and propose necessary changes, explaining each affected file.
+Preserve existing JSON fields, source-page references and AI-generated markers.
+Validate with shareable synthetic examples and offline tests, then list changes and unverified behavior.
+Do not read private configuration, make paid model calls automatically or commit real classroom photos.
+```
+
+After editing, use a few examples you can check independently. Compare the same input before and after the change, including symbols, code and source pages. Make live provider calls only with explicit authorization. See the [evaluation templates](evaluation/classroom-photos/README.md) for human expectations and scoring.
+
+For other configuration and interface changes, start here.
 
 | Location | Purpose |
 | --- | --- |
@@ -153,6 +174,12 @@ Operators supply their own mini-program release setup, model budget and deployme
 Keep model keys and WeChat AppSecret on the backend. Local `.env` files, `.reviewer-data`, databases, uploaded originals and private packages belong in controlled local or server storage.
 
 Do not expose `reviewer.py` or its one-time login URL through a public proxy. Follow the [security policy](SECURITY.en.md) for private reporting, and keep vulnerability details and sensitive material out of public issues.
+
+## A final note
+
+If you develop better prompts for a course, contributions that include a shareable synthetic example are welcome. Mark the incorrect formula symbol or indentation so others can check the same input.
+
+A reproducible bug or a note that explains a limitation can be a contribution. Start with a page you understand well.
 
 ## MIT license
 
