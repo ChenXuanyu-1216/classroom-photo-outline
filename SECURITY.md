@@ -1,19 +1,23 @@
-# Security policy
+# 安全说明
 
-This is a source-only developer preview without a hosted service or a guaranteed security-support period. Keep the existing private development repository and all credential-bearing review packages private. Production use requires your own deployment and security review.
+**简体中文** · [English](SECURITY.en.md)
 
-## Report privately
+本项目是源码开发者预览版，没有公共托管服务，也没有承诺固定的安全支持期限。用于生产环境前，需要自行检查部署和安全配置。历史私有开发资料与含凭据的评审包应继续保持私有。
 
-Before reporting, check whether the published repository offers **Security → Report a vulnerability**. Use that private channel only if it is actually available. Private vulnerability reporting for a future repository has not been enabled or verified by this source preparation.
+## 私下报告漏洞
 
-If the private channel is unavailable, do not place exploit details, keys, session tokens, personal material or affected photos in a public issue. At most, open a generic issue asking the maintainer to provide a private reporting channel, without technical details. No unverified email address is designated here.
+先查看本项目的安全（Security）页面是否提供 **私密报告漏洞（Report a vulnerability）** 入口。如果有，请通过该入口私密报告。本说明不预设项目已经启用这一功能。
 
-For an exposed credential under your control, revoke/rotate it through its provider and inspect usage. Removing it from a current file or a Git commit does not revoke it. Coordinate any history/ref cleanup separately.
+如果暂时没有私密入口，可以提交一个不含技术细节的 Issue，请维护者提供联系渠道。不要在公开页面贴出利用步骤、API 密钥、会话令牌、个人资料或受影响的课堂照片。这里不指定未经核验的报告邮箱。
 
-## Runtime boundaries
+如果你控制的凭据已经泄露，应先到对应服务商撤销或轮换，并检查使用记录。删除文件或清理 Git 历史不会使旧凭据自动失效，历史清理需要另行协调。
 
-- Never expose `reviewer.py` or its one-time login URL through a public proxy. It is a local-only workflow, not production authentication.
-- Keep API keys and WeChat AppSecret on the server; use private object storage and ownership checks.
-- Shared mini-program configuration contains blank identifiers; configure your own environment before use.
-- Do not publish `.reviewer-data`, `.env`, sessions, uploads, databases, model prompts containing private inputs, audit mirrors or private package outputs.
-- The localhost TLS key in backend tests is intentionally public test material. Never deploy it as a real service key.
+## 部署时需要守住的范围
+
+- `reviewer.py` 和一次性登录链接仅用于本机回环访问，不提供生产环境认证。
+- 模型密钥和微信 AppSecret 只放在后端，保留任务归属检查，使用私有对象存储。
+- 部署前填写自己的小程序 AppID、云环境和服务配置。
+- 不要公开 `.reviewer-data`、填写后的 `.env`、会话、数据库、上传资料、含私有输入的提示词、审计镜像或私有包。
+- 后端测试里的 localhost TLS 私钥是公开测试材料，不能用于真实服务。
+
+将用户资料发给模型和公开分发资料都需要对应授权。项目的 [MIT 许可证](LICENSE)适用于代码和文档，不替他人的课堂资料授予使用许可。

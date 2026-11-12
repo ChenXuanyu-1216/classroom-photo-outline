@@ -1,21 +1,25 @@
-# Contributing
+# 贡献说明
 
-Install from [the source quickstart](docs/local-quickstart.md). Use your own private configuration, temporary test data and synthetic inputs. Keep changes focused and record what you changed, why, the checks run and remaining limits in your pull request.
+**简体中文** · [English](CONTRIBUTING.en.md)
 
-## Required checks
+先按[快速开始](docs/local-quickstart.md)安装，用自己的私有配置、合成图片和临时测试数据开发。提交 Pull Request 时，写清改了什么、为什么改，附上实际运行的检查和仍未验证的部分。
 
-Install `requirements.txt` and `requirements-dev.txt`, then run backend pytest, both Node.js test suites and the source-reviewer runtime checks listed in [README.en.md](README.en.md#tests). Real MySQL and container jobs have their own environments. Never report mocked provider behavior as a live model result.
+## 改代码之前
 
-## Data, credentials and costs
+报告问题时，请给出可复现的步骤和脱敏后的错误信息。修改已有行为时，说明期望结果，以及会影响网页、小程序还是后端的哪些入口。无关修改分开提交，方便逐项检查。
 
-Do not commit API keys, WeChat AppSecret, sessions, owner identifiers in shared defaults, local configuration, databases, uploads, classroom photos, private permission conversations, generated private ZIPs or raw logs. Empty `.env.example`, `.env.cloud.example` and `.env.reviewer.example` files are safe configuration references; their populated copies are private.
+安装运行与开发依赖后，执行 [README 中的测试](README.md#测试)，包括后端、网页、小程序和源码评审入口。真实 MySQL 与容器检查需要对应环境。模拟上游得到的结果不能记成真实模型实测。
 
-Use the synthetic slide or data you are allowed to redistribute. Local permission, cloud-model upload and public redistribution are separate decisions. Do not run paid recognition as part of an unsolicited test; obtain authorization for the input and costs first.
+## 私有资料留在本机
 
-`scripts/build_reviewer_bundle.py` is historical maintainer tooling for a credential-bearing private package. It is not a public build recipe, and its output must never become a public release asset.
+不要提交 API 密钥、微信 AppSecret、会话、填写后的配置、数据库、上传原图、课堂照片、私有授权对话、原始日志或含凭据的打包产物。共享默认配置中也不要填入自己的 AppID 和云环境。
 
-## Licensing and attribution
+`.env.example`、`.env.cloud.example` 和 `.env.reviewer.example` 是公开的空配置参考，填写后的副本应留在私有目录。测试优先使用合成图；使用其他资料前，要确认自己有权分发。本地使用、向模型上传和公开再分发分别确认，付费测试还要先确认输入授权与费用。
 
-By submitting a contribution, you confirm that you have the right to submit it under the project's [MIT License](LICENSE). Preserve existing attribution and upstream notices. Declare copied code, generated assets and additional dependencies with their applicable permissions and terms; see [third-party notices](THIRD_PARTY_NOTICES.md).
+`scripts/build_reviewer_bundle.py` 保留了历史维护工具，可能生成包含凭据的私有包。它的输出不能作为公开发行附件。
 
-For vulnerabilities, follow [SECURITY.md](SECURITY.md) rather than posting sensitive details publicly. Local branch naming and review guidance is in [docs/branching.md](docs/branching.md).
+## 许可与署名
+
+提交贡献前，请确认你有权按项目的 [MIT 许可证](LICENSE)提供这些内容，并保留已有署名与依赖声明。引入复制的代码、生成素材或新依赖时，注明来源、允许用途和适用条款，见[第三方声明](THIRD_PARTY_NOTICES.md)。
+
+漏洞请按[安全说明](SECURITY.md)私下报告。[分支约定](docs/branching.md)列出了本地分支与评审要求。

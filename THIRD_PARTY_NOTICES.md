@@ -1,34 +1,36 @@
-# Third-party notices and asset boundaries
+# 第三方声明与素材范围
 
-The project source and documentation use the MIT License in `LICENSE`, with copyright (c) 2026 ChenXuanyu-1216. The owner selected this license and confirmed permission for the included contributions on 2026-11-12. Existing contributor attribution must be preserved; this statement does not relicense third-party packages.
+**简体中文** · [English](THIRD_PARTY_NOTICES.en.md)
 
-## Dependencies
+项目源码和文档采用 [MIT 许可证](LICENSE)，版权所有 © 2026 ChenXuanyu-1216。所有者于 2026 年 11 月 12 日选定该许可证，并确认拥有许可所含贡献的权限。已有贡献者的署名应继续保留，第三方依赖仍适用各自条款。
 
-This source distribution references dependencies through pip requirements; it does not bundle their installed libraries, Python, Node.js or a portable runtime. The following direct dependency metadata was inspected in the existing development environment on 2026-11-12. These versions are an inventory of that environment, not a lockfile, fresh-installation result or exhaustive inventory of transitive packages/native components. Consult each installed distribution's license files and the corresponding upstream version when redistributing dependencies.
+## 依赖
 
-| Package | Reviewed version | Declared license | Source |
+源码通过 pip requirements 引用依赖，不附带安装后的依赖库、Python、Node.js 或便携运行环境。下表来自 2026 年 11 月 12 日已有开发环境的直接依赖元数据，用于说明当时检查的版本，不是锁定文件，也不穷尽间接依赖或原生组件。分发依赖时，应查看实际版本随附的许可证文件和上游声明。
+
+| 依赖 | 已检查版本 | 声明的许可证 | 来源 |
 | --- | --- | --- | --- |
-| fastapi | 0.115.14 | MIT | [upstream](https://github.com/fastapi/fastapi) |
-| uvicorn | 0.34.3 | BSD-3-Clause | [upstream](https://www.uvicorn.org/) |
-| SQLAlchemy | 2.0.54 | MIT | [upstream](https://www.sqlalchemy.org) |
-| PyMySQL | 1.2.3 | MIT | [upstream](https://github.com/PyMySQL/PyMySQL) |
-| cos-python-sdk-v5 | 1.9.44 | MIT | [upstream](https://github.com/tencentyun/cos-python-sdk-v5) |
-| pydantic | 2.14.1 | MIT | [upstream](https://github.com/pydantic/pydantic) |
-| pydantic-settings | 2.15.0 | MIT | [upstream](https://github.com/pydantic/pydantic-settings) |
-| python-dotenv | 1.2.4 | BSD-3-Clause | [upstream](https://github.com/theskumar/python-dotenv) |
-| python-multipart | 0.0.32 | Apache-2.0 | [upstream](https://github.com/Kludex/python-multipart) |
-| PyYAML | 6.0.3 | MIT | [upstream](https://pyyaml.org/) |
-| python-docx | 1.2.0 | MIT | [upstream](https://github.com/python-openxml/python-docx) |
-| httpx | 0.28.1 | BSD-3-Clause | [upstream](https://github.com/encode/httpx) |
-| certifi | 2026.7.22 | MPL-2.0 | [upstream](https://github.com/certifi/python-certifi) |
-| Pillow | 12.3.0 | MIT-CMU | [upstream](https://python-pillow.github.io) |
-| pytest | 9.1.1 | MIT | [upstream](https://docs.pytest.org/en/latest/) |
+| fastapi | 0.115.14 | MIT | [项目来源](https://github.com/fastapi/fastapi) |
+| uvicorn | 0.34.3 | BSD-3-Clause | [项目来源](https://www.uvicorn.org/) |
+| SQLAlchemy | 2.0.54 | MIT | [项目来源](https://www.sqlalchemy.org) |
+| PyMySQL | 1.2.3 | MIT | [项目来源](https://github.com/PyMySQL/PyMySQL) |
+| cos-python-sdk-v5 | 1.9.44 | MIT | [项目来源](https://github.com/tencentyun/cos-python-sdk-v5) |
+| pydantic | 2.14.1 | MIT | [项目来源](https://github.com/pydantic/pydantic) |
+| pydantic-settings | 2.15.0 | MIT | [项目来源](https://github.com/pydantic/pydantic-settings) |
+| python-dotenv | 1.2.4 | BSD-3-Clause | [项目来源](https://github.com/theskumar/python-dotenv) |
+| python-multipart | 0.0.32 | Apache-2.0 | [项目来源](https://github.com/Kludex/python-multipart) |
+| PyYAML | 6.0.3 | MIT | [项目来源](https://pyyaml.org/) |
+| python-docx | 1.2.0 | MIT | [项目来源](https://github.com/python-openxml/python-docx) |
+| httpx | 0.28.1 | BSD-3-Clause | [项目来源](https://github.com/encode/httpx) |
+| certifi | 2026.7.22 | MPL-2.0 | [项目来源](https://github.com/certifi/python-certifi) |
+| Pillow | 12.3.0 | MIT-CMU | [项目来源](https://python-pillow.github.io) |
+| pytest | 9.1.1 | MIT | [项目来源](https://docs.pytest.org/en/latest/) |
 
-Python packages keep their own copyright and license notices. In particular, certifi's MPL-2.0 and Pillow's MIT-CMU terms remain distinct from the project MIT license. A future binary/container distribution must inventory its complete transitive/native runtime and retain the required notices; this source-only table does not complete that work.
+Python 依赖保留各自的版权和许可声明。certifi 的 MPL-2.0 与 Pillow 的 MIT-CMU 条款独立于项目 MIT 许可。以后若分发二进制、容器或完整运行环境，还需要检查全部间接依赖与原生组件，保留适用声明；本表不代表那项工作已经完成。
 
-## Included assets and test material
+## 随源码提供的素材
 
-- The project-created synthetic slide fixture and its two identical UI copies are covered by the project license. See [image provenance](docs/ui-assets.md). They are not classroom photographs.
-- `backend/tests/fixtures/synthetic-cloudrun-ca.pem` and `synthetic-cloudrun-server-key.pem` under `lecture-syllabus-generator/` are intentional localhost-only test material. They must never be used as production TLS credentials.
-- No real classroom photos, optional historical pilot package, private annotations, private review package, model credentials, fonts or installed dependency libraries are bundled in this source folder.
-- Platform names, external service terms, user-uploaded materials and any provider output retain their applicable rights. The code license grants no additional permission to upload, publish or redistribute classroom material.
+- 项目生成的合成课件测试图及其两份 UI 副本采用项目许可，见[图片来源](docs/ui-assets.md)。这些文件不包含真实课堂照片。
+- `lecture-syllabus-generator/backend/tests/fixtures/` 中的 `synthetic-cloudrun-ca.pem` 与 `synthetic-cloudrun-server-key.pem` 用于 localhost 测试，不能充当生产 TLS 凭据。
+- 源码不附带真实课堂照片、历史试标数据包、私有标注、私有评审包、模型凭据、字体或已安装的依赖库。
+- 平台名称、外部服务、用户上传资料和模型输出保留各自适用的权利与条款。代码许可不额外授予课堂资料的上传、公开或再分发权限。

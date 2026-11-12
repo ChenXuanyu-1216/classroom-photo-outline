@@ -1,12 +1,20 @@
-# Changelog
+# 更新记录
 
-## Unreleased — v0.1.0 developer preview candidate
+**简体中文** · [English](CHANGELOG.en.md)
 
-- Source installation for the FastAPI backend, browser interface and native WeChat mini-program.
-- Ordered photo upload, outline generation and editing, saved history, source inspection and Word export.
-- Owner-scoped evaluation snapshots and append-only human reviews.
-- Loopback-only reviewer startup using the operator's own DeepSeek key.
-- Explicit cloud schema/import support and private-storage integration.
-- Blank owner configuration, synthetic example images, MIT licensing and source-focused setup guides.
+## 尚未发布
 
-This entry does not announce a published tag, hosted service or Windows executable. Live provider quality, clean-machine installation, MySQL/Docker deployment and WeChat device acceptance must be recorded separately. No real classroom-photo dataset or private review archive is included.
+- 重写中英文 README，补充完整的本机启动说明与当前发布入口。
+- 贡献、安全和第三方声明改为中文优先，提供英文版本及 MIT 全文中文参考译文。
+
+## v0.1.0
+
+2026 年 11 月 12 日发布，[开发者预览版](https://github.com/ChenXuanyu-1216/classroom-photo-outline/releases/tag/v0.1.0)。
+
+- 提供 FastAPI 后端、浏览器界面和原生微信小程序源码。
+- 支持照片按序上传、生成与编辑大纲、历史重开、来源查看和 Word 导出。
+- 提供按用户隔离的评价快照与追加人工评价。
+- 本机评审入口使用运行者自己的 DeepSeek 密钥，仅监听回环地址。
+- 包含显式云数据库迁移、私有存储、空配置、合成示例与 MIT 许可。
+
+这是源码发行，不附带真实课堂照片或私有评审包。真实模型质量、微信真机体验与生产部署需要各自的验收证据。
