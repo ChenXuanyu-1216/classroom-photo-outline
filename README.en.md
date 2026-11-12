@@ -197,11 +197,13 @@ Do not expose `reviewer.py` or its one-time login URL through a public proxy. Fo
 
 This project began with a simple thought in class.
 
-I do not know how far it will go or how many people's way of learning it might change. I have always believed that technology should help people understand ideas more easily.
+I do not know how far it will ultimately go, or how many people's ways of learning it might truly change.
 
-I hope that one day, everyone who works hard to learn can have a knowledge map of their own. They can see which ideas connect and understand why those connections exist.
+But I have always believed that the meaning of technology is not only to make machines smarter, but to make knowledge easier to understand.
 
-The rest of the story is for everyone who uses it to continue.
+I hope that one day, everyone who works hard to learn can have a knowledge map of their own.
+
+The rest of the story is left to time and everyone who uses it.
 
 ## MIT license
 
