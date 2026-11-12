@@ -24,6 +24,8 @@
 
 ## What it does
 
+This is an AI learning tool for university students. I want it to turn fragmented classroom material into a clear, understandable body of knowledge, where each concept has a place and its connections to other ideas can be explained.
+
 Upload a set of slide photos in page order. The application recognizes the pages, groups related points and builds an outline with source-page references. Check it against the images, edit and save it, reopen it from history, or export a Word document.
 
 The source includes a FastAPI backend, a browser interface and a native WeChat mini-program. Image processing, recognition prompts, grouping, knowledge expansion and export are available in the code so you can follow and change the actual workflow.
@@ -32,9 +34,9 @@ The source includes a FastAPI backend, a browser interface and a native WeChat m
 
 ## Why open source
 
-Courses use different terminology, formulas and ways of explaining ideas. The default prompts are a starting point. Open source lets you inspect image processing and grouping, then adapt them to your course.
+I have found that students often struggle to connect scattered pieces of knowledge. When organizing material and revising after class, they still need to understand how those pieces relate.
 
-Publishing the recognition prompts alongside human-review methods also makes problems easier to discuss precisely. A missing condition or incorrect source page can be investigated with the same input and processing steps, giving a change something concrete to check against.
+I want to help change that. By making the project open source, I hope more people can inspect how it works, adapt it to their courses and help identify missing or unclear explanations in its output.
 
 ## A few things up front
 
@@ -193,9 +195,13 @@ Do not expose `reviewer.py` or its one-time login URL through a public proxy. Fo
 
 ## A final note
 
-If you develop better prompts for a course, contributions that include a shareable synthetic example are welcome. Mark the incorrect formula symbol or indentation so others can check the same input.
+This project began with a simple thought in class.
 
-A reproducible bug or a note that explains a limitation can be a contribution. Start with a page you understand well.
+I do not know how far it will go or how many people's way of learning it might change. I have always believed that technology should help people understand ideas more easily.
+
+I hope that one day, everyone who works hard to learn can have a knowledge map of their own. They can see which ideas connect and understand why those connections exist.
+
+The rest of the story is for everyone who uses it to continue.
 
 ## MIT license
 
